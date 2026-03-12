@@ -1,0 +1,182 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// --- USER & PROFILE ---
+model User {
+  id                String       @id @default(cuid())
+  email             String       @unique
+  username          String       @unique
+  password          String
+  name              String
+  bio               String?
+  avatarUrl         String?      
+  githubUrl         String?
+  twitterUrl        String?
+  skills            String[]     // Array of skill tags
+  
+  // Relations
+  posts             Post[]
+  comments          Comment[]
+  likes             Like[]
+  
+  // Chat Relations
+  conversations     ConversationParticipant[]
+  messages          Message[]
+  
+  // Notification Relations
+  notifications     Notification[] @relation("Recipient")
+  issuedNotifications Notification[] @relation("Issuer")
+
+  createdAt         DateTime     @default(now())
+  updatedAt         DateTime     @updatedAt
+}
+
+// --- CONTENT (Posts, Tags, Comments) ---
+model Post {
+  id          String     @id @default(cuid())
+  title       String
+  content     String     @db.Text
+  type        PostType   @default(DISCUSSION)
+  
+  authorId    String
+  author      User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  
+  tags        Tag[]
+  comments    Comment[]
+  likes       Like[]
+
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([authorId])
+}
+
+enum PostType {
+  QUESTION
+  RESOURCE
+  DISCUSSION
+}
+
+model Tag {
+  id     String @id @default(cuid())
+  name   String @unique
+  posts  Post[]
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  content   String   @db.Text
+  
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  
+  likes     Like[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([postId])
+  @@index([authorId])
+}
+
+model Like {
+  id        String   @id @default(cuid())
+  
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  // Polymorphic-like relation: Can belong to either a Post or a Comment
+  postId    String?
+  post      Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  
+  commentId String?
+  comment   Comment? @relation(fields: [commentId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+
+  // Ensure a user can't like the same post/comment twice
+  @@unique([userId, postId])
+  @@unique([userId, commentId])
+}
+
+// --- REAL-TIME CHAT ---
+model Conversation {
+  id            String   @id @default(cuid())
+  isGroup       Boolean  @default(false)
+  name          String?  // Name for group chats
+  
+  participants  ConversationParticipant[]
+  messages      Message[]
+
+  lastMessageAt DateTime @default(now())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model ConversationParticipant {
+  id             String       @id @default(cuid())
+  userId         String
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  
+  joinedAt       DateTime     @default(now())
+
+  @@unique([userId, conversationId])
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  content        String       @db.Text
+  
+  senderId       String
+  sender         User         @relation(fields: [senderId], references: [id], onDelete: Cascade)
+  
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  
+  createdAt      DateTime     @default(now())
+
+  @@index([conversationId])
+  @@index([senderId])
+}
+
+// --- NOTIFICATIONS ---
+model Notification {
+  id          String           @id @default(cuid())
+  type        NotificationType
+  
+  recipientId String
+  recipient   User             @relation("Recipient", fields: [recipientId], references: [id], onDelete: Cascade)
+  
+  issuerId    String
+  issuer      User             @relation("Issuer", fields: [issuerId], references: [id], onDelete: Cascade)
+  
+  // References to the source of notification
+  postId      String?
+  commentId   String?
+  messageId   String?
+  
+  isRead      Boolean          @default(false)
+  createdAt   DateTime         @default(now())
+
+  @@index([recipientId])
+}
+
+enum NotificationType {
+  POST_LIKE
+  NEW_COMMENT
+  NEW_MESSAGE
+  FOLLOW
+  SYSTEM
+}

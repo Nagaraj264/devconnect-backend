@@ -1,0 +1,33 @@
+{
+  "name": "devconnect-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "prisma:generate": "prisma generate --schema=src/prisma/schema.prisma",
+    "prisma:push": "prisma db push --schema=src/prisma/schema.prisma"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nagaraj264/devconnect-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nagaraj264/devconnect-backend/issues"
+  },
+  "homepage": "https://github.com/Nagaraj264/devconnect-backend#readme",
+  "dependencies": {
+    "@prisma/client": "^6.19.2",
+    "bcryptjs": "^3.0.3",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "nodemon": "^3.1.14",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "prisma": "^6.19.2"
+  }
+}
