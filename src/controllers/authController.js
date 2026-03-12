@@ -1,4 +1,5 @@
 import bcrypt from "bcryptjs";
+import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from "../utils/jwt.js";
 import prisma from "../services/db.js";
 
 export const register = async (req, res, next) => {
@@ -42,4 +43,48 @@ export const register = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export const login = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await prisma.user.findUnique({
+      where: { email },
+    });
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordValid) {
+      return res.status(401).json({ message: "Invalid credentials" });
+    }
+
+    const accessToken = generateAccessToken({ id: user.id,  });
+    const refreshToken = generateRefreshToken({ id: user.id });
+
+    res.status(200).json({ accessToken, refreshToken });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const refreshToken = (req, res) => {
+  const { token } = req.body; 
+
+  if (!token) {
+    return res.status(401).json({ message: "Refresh token required" });
+  }
+  
+  const decoded = verifyRefreshToken(token);
+  
+  if (!decoded) {
+    return res.status(403).json({ message: "Invalid refresh token" });
+  }
+  
+  const accessToken = generateAccessToken({ id: decoded.id });
+  res.json({ accessToken });
 };
