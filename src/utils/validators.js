@@ -13,3 +13,24 @@ export const loginSchema = z.object({
   email: z.string().email(),
   password: z.string().min(1, "Password is required"),
 });
+
+
+
+export const createPostSchema = z.object({
+  title: z.string().min(5, "Title must be at least 5 characters"),
+  content: z.string().min(10, "Content must be at least 10 characters"),
+  type: z.enum(["QUESTION", "RESOURCE", "DISCUSSION"]).optional(),
+});
+
+
+export const updatePostSchema = z.object({
+  title: z.string().min(5, "Title must be at least 5 characters").optional(),
+  content: z.string().min(10, "Content must be at least 10 characters").optional(),
+  type: z.enum(["QUESTION", "RESOURCE", "DISCUSSION"]).optional(),
+});
+
+
+
+export const createCommentSchema = z.object({
+  content: z.string().min(1, "Comment cannot be empty").max(500, "Comment too long"),
+});
