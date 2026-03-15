@@ -43,6 +43,8 @@ model Post {
   title       String
   content     String     @db.Text
   type        PostType   @default(DISCUSSION)
+
+  imageUrl    String?
   
   authorId    String
   author      User       @relation(fields: [authorId], references: [id], onDelete: Cascade)

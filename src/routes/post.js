@@ -3,12 +3,13 @@ import { createPost, getPosts, deletePost, updatePost } from "../controllers/pos
 import { protect } from "../middleware/auth.js";
 import { validate } from "../middleware/validate.js";
 import { createPostSchema, updatePostSchema } from "../utils/validators.js";
+import { uploadPostImage } from "../utils/upload.js";
 
 const router = express.Router();
 
 router.get("/", getPosts);
 
-router.post("/", protect, validate(createPostSchema), createPost);
+router.post("/", protect, uploadPostImage.single('image'), validate(createPostSchema), createPost);
 router.put("/:id", protect, validate(updatePostSchema), updatePost);
 router.delete("/:id", protect, deletePost);
 

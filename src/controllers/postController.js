@@ -4,11 +4,26 @@ import prisma from "../services/db.js"
 
 export const createPost = async (req, res, next) => {
   try {
+    let imageUrl = null;
+    if (req.file && req.file.path) {
+      imageUrl = req.file.path; 
+    }
+
+    if (!imageUrl && req.body.imageUrl) {
+        imageUrl = req.body.imageUrl;
+    }
+
     const { title, content, type } = req.body;
     const authorId = req.user.id; 
 
     const post = await prisma.post.create({
-      data: { title, content, type, authorId },
+      data: { 
+        title, 
+        content, 
+        type, 
+        authorId,
+        imageUrl 
+      },
     });
 
     res.status(201).json(post);

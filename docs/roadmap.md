@@ -45,6 +45,25 @@
 - [x] **Zod Validation**: Reusable middleware to validate request bodies before processing.
 - [x] **Auth Guard**: `protect` middleware created to secure private routes.
 
+### 4. Post & Social System
+
+- [x] **Post CRUD**: Complete Create, Read, Update, Delete functionality.
+- [x] **Comments**: Nested comments on posts.
+- [x] **Likes**: Polymorphic liking system (users can like posts or comments).
+- [x] **Image Uploads**: Integration with Multer and Cloudinary for post images.
+
+### 5. User Profiles
+
+- [x] **Profile Retrieval**: Fetch user profiles by username.
+- [x] **Profile Updates**: Users can update bio, skills, and social links.
+- [x] **Avatar Uploads**: Square-cropped Cloudinary uploads for user avatars.
+
+### 6. Real-Time Features
+
+- [x] **Socket.io Integration**: Configured WebSockets alongside Express.
+- [x] **Real-time Chat**: 1-on-1 private messaging using `Conversations` and `Messages`.
+- [x] **Live Notifications**: Emitting socket events when users receive likes or comments.
+
 ---
 
 ## 🏗️ Project Architecture Notes
@@ -67,20 +86,14 @@
 
 ## 📋 Next Steps (Immediate)
 
-### Phase 2: Post & Social System
+### Phase 4: Security & Optimization
 
-1. **Post CRUD**:
-   - Create `src/controllers/postController.js`.
-   - Implement `createPost` (using `req.user.id`).
-   - Implement `getPosts` (Public), `updatePost`, and `deletePost` (Owner only).
-2. **Post Interaction**:
-   - Implement Likes (Polymorphic logic).
-   - Implement Nested Comments.
-
-### Phase 3: Real-Time & Optimization
-
-1. **WebSockets**: Integrate Socket.io for real-time notifications and chat.
-2. **Caching**: Redis integration for high-traffic endpoints.
+1. **Security Middlewares**:
+   - Install and configure `cors` for frontend connectivity.
+   - Install `helmet` for HTTP header security.
+   - Implement `express-rate-limit` to prevent abuse.
+2. **Caching**: Redis integration for high-traffic endpoints (e.g., global feed).
+3. **Testing**: Write Jest/Supertest integration tests for core endpoints.
 
 ---
 

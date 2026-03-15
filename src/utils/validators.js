@@ -34,3 +34,22 @@ export const updatePostSchema = z.object({
 export const createCommentSchema = z.object({
   content: z.string().min(1, "Comment cannot be empty").max(500, "Comment too long"),
 });
+
+
+export const startChatSchema = z.object({
+  recipientId: z.string().cuid("Invalid user ID format"),
+});
+
+export const sendMessageSchema = z.object({
+  content: z.string().min(1, "Message cannot be empty").max(1000, "Message is too long"),
+});
+
+
+export const updateProfileSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters").optional(),
+  bio: z.string().max(500, "Bio must be less than 500 characters").optional(),
+  githubUrl: z.string().url("Invalid GitHub URL").optional(),
+  twitterUrl: z.string().url("Invalid Twitter URL").optional(),
+  skills: z.array(z.string()).optional(),
+  avatarUrl: z.string().url("Invalid Image URL").optional(),
+});

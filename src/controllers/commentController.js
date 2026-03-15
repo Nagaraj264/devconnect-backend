@@ -1,4 +1,5 @@
 import prisma from "../services/db.js";
+import { getIO } from "../sockets/socket.js";
 
 export const createComment = async (req, res, next) => {
   try {
@@ -23,6 +24,30 @@ export const createComment = async (req, res, next) => {
         },
       },
     });
+
+    // --- NOTIFICATION START ---
+    try {
+      if (post.authorId !== userId) {
+        const notification = await prisma.notification.create({
+          data: {
+            recipientId: post.authorId,
+            issuerId: userId,
+            type: "NEW_COMMENT",
+            postId,
+            commentId: comment.id,
+          },
+          include: {
+            issuer: { select: { username: true, avatarUrl: true } }
+          }
+        });
+        
+        const io = getIO();
+        io.to(post.authorId).emit("new_notification", notification);
+      }
+    } catch (notifError) {
+      console.error("Notification failed:", notifError);
+    }
+    // --- NOTIFICATION END ---
 
     res.status(201).json(comment);
   } catch (error) {
