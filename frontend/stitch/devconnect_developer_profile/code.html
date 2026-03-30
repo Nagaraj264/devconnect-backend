@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevConnect | Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-container": "#c4abff",
+                        "inverse-primary": "#006b5f",
+                        "surface-container": "#1b2025",
+                        "on-primary": "#003731",
+                        "secondary-container": "#571bc1",
+                        "on-error": "#690005",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-tint": "#3cddc7",
+                        "surface-container-low": "#171c21",
+                        "on-secondary-fixed": "#23005c",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "on-primary-fixed": "#00201c",
+                        "tertiary-container": "#44d69b",
+                        "surface-bright": "#353a3f",
+                        "primary-container": "#2dd4bf",
+                        "outline-variant": "#3c4a46",
+                        "surface-container-high": "#252a30",
+                        "on-primary-container": "#00574d",
+                        "error-container": "#93000a",
+                        "background": "#0f1419",
+                        "on-tertiary-fixed": "#002113",
+                        "on-secondary": "#3c0091",
+                        "primary-fixed": "#62fae3",
+                        "on-background": "#dee3ea",
+                        "on-surface-variant": "#bacac5",
+                        "tertiary": "#66f3b6",
+                        "on-primary-fixed-variant": "#005047",
+                        "primary-fixed-dim": "#3cddc7",
+                        "outline": "#859490",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "surface-dim": "#0f1419",
+                        "surface-container-lowest": "#0a0f14",
+                        "on-tertiary": "#003824",
+                        "secondary": "#d0bcff",
+                        "surface-variant": "#30353b",
+                        "error": "#ffb4ab",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-tertiary-container": "#00593b",
+                        "surface-container-highest": "#30353b",
+                        "inverse-surface": "#dee3ea",
+                        "on-surface": "#dee3ea",
+                        "secondary-fixed": "#e9ddff",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#2c3136",
+                        "surface": "#0f1419",
+                        "primary": "#57f1db"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #0f1419;
+            color: #dee3ea;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-panel {
+            background: rgba(48, 53, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(133, 148, 144, 0.15);
+        }
+        .kinetic-gradient {
+            background: linear-gradient(135deg, #57f1db 0%, #2dd4bf 100%);
+        }
+        .terminal-glow {
+            box-shadow: 0 0 20px rgba(87, 241, 219, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#0F1419] dark:bg-[#0F1419]">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-7xl mx-auto">
+<div class="flex items-center gap-4">
+<span class="text-xl font-black text-[#2DD4BF] tracking-tighter font-['Inter']">DevTerminal</span>
+</div>
+<div class="hidden md:flex flex-1 max-w-md mx-8">
+<div class="w-full relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm">search</span>
+<input class="w-full bg-surface-container-low border-b border-outline-variant/20 focus:border-primary transition-all px-10 py-2 rounded-full text-sm outline-none" placeholder="Search the console..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-[#1B2025] transition-colors rounded-full relative">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full animate-pulse"></span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-[#1B2025] transition-colors rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="User Profile Avatar" data-alt="Close up portrait of a digital avatar, minimalist vector style with teal and violet accents on a dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOJDlwUKe894kL-VOUjeWySkJ3veddGyAkZmcV-HsHlNQFmBisch-73ELuLgRMLnL4AnYvBuEmoFbeTtJc-1xusZ5_uiknn6qJK-j6PUTkx-8rijWFT62Q-JbIhJkXZiYLxv8XTK42doE6fkIIvPBs8pNCr_y5xv8YQnskzgGvURpDnlRoy1eQ1PXs1IYCoyBP9lZn5ND4pn-sggwenhiVupSgl-B4Z-vAw0tiG8W6PVy07bfihbAnRcFOCRt6KgDHxrK7XATNFCI"/>
+</div>
+</div>
+</div>
+</header>
+<div class="flex max-w-7xl mx-auto pt-16">
+<!-- SideNavBar -->
+<aside class="hidden lg:flex flex-col w-64 p-4 gap-4 h-screen sticky top-16 left-0 bg-[#171C21] border-r border-[#30353B]/15">
+<div class="flex items-center gap-3 px-4 py-6 border-b border-outline-variant/10">
+<div class="w-10 h-10 rounded-xl kinetic-gradient flex items-center justify-center text-on-primary shadow-lg">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</div>
+<div>
+<div class="text-[#2DD4BF] font-bold font-['JetBrains_Mono'] text-sm">Console.log(User)</div>
+<div class="text-[10px] text-outline uppercase tracking-widest font-bold">Senior Engineer</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1 mt-4">
+<a class="flex items-center gap-3 px-4 py-3 text-[#71767B] hover:text-[#57F1DB] hover:bg-[#1B2025]/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined" data-icon="feed">feed</span>
+<span class="font-['JetBrains_Mono'] text-sm">Feed</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#71767B] hover:text-[#57F1DB] hover:bg-[#1B2025]/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-['JetBrains_Mono'] text-sm">Exploration</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#71767B] hover:text-[#57F1DB] hover:bg-[#1B2025]/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span class="font-['JetBrains_Mono'] text-sm">Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#71767B] hover:text-[#57F1DB] hover:bg-[#1B2025]/50 transition-all duration-300 rounded-full group" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-['JetBrains_Mono'] text-sm">Network</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#2DD4BF] bg-[#1B2025] rounded-full transition-all duration-300 group" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['JetBrains_Mono'] text-sm">Profile</span>
+</a>
+</nav>
+<button class="mt-auto mb-20 w-full py-3 kinetic-gradient rounded-full text-on-primary font-bold text-sm tracking-tight active:scale-95 transition-transform shadow-lg shadow-primary/10">
+                New Post
+            </button>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 min-h-screen px-4 py-8 md:px-8">
+<div class="max-w-[900px] mx-auto space-y-8">
+<!-- Profile Header Card -->
+<section class="bg-[#1A1F2E] rounded-[1rem] overflow-hidden relative shadow-2xl border border-outline-variant/10">
+<!-- Top Banner -->
+<div class="h-[120px] w-full bg-gradient-to-r from-[#2DD4BF] to-[#8B5CF6] relative overflow-hidden">
+<div class="absolute inset-0 opacity-20 mix-blend-overlay">
+<img alt="Banner pattern" data-alt="Abstract generative pattern of flowing digital lines and particles in teal and violet tones, high tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3xH9uxQnMIMGZlRejH5324MRusF-9aUW45C6LCrf-u-cUdDTQR4LGFn6BqHS5O0Mm9AU0ljJsOem61VHHFZUaDCfk_qUdjE0dHfEBZFUSv_x5XW5UlY-A3KednhlTZHSvQgVwBTh_vA_tltFZA_23VomuakPSzke8J5uvoyv1FLIwg34VsomCQ8YT7fUUqE6cIyAzrd0x3bx0olQcOOLpS3BMk07xbSEEqqW-ch75gsKPk1nS4CJrD-A7gVrEuKOfUE9HcsxCNn4"/>
+</div>
+</div>
+<div class="px-8 pb-8">
+<div class="relative flex justify-between items-end -mt-12 mb-4">
+<!-- Avatar -->
+<div class="w-24 h-24 rounded-full border-[3px] border-white overflow-hidden bg-surface shadow-xl">
+<img alt="Profile Avatar" data-alt="Professional studio portrait of a confident developer with tech gadgets in a softly blurred background, teal rim lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZyEFcjvX3SfFXblXgaggW1isvIBxIpnnS1If_090T2MWibBeO4B8KF-At7-iDkZ3RggZUOH6Ca7AqvYg8IRKNlnMDrpqg1paaEiE8mdvzWn9CihPdV_wNA5ekvnF0xBb-zsjf-sF2_vzvXZLM6NXaP2ybldWpfDqQE7GijaPaIpUFw4I1_eE9owU8Pk0qriGrstSb-_2AaQBY5RyNmeSf33xPUH-1BlqRH20Bp-DjPbfEPMiur1O6wmMfqgh3MdRBGu8jSDkcOrM"/>
+</div>
+<!-- Edit Button -->
+<button class="px-6 py-2 border border-primary text-primary rounded-full font-bold text-sm hover:bg-primary/10 transition-colors">
+                                Edit Profile
+                            </button>
+</div>
+<div class="space-y-4">
+<div>
+<h1 class="text-2xl font-bold text-white tracking-tight">Alex Rivera</h1>
+<p class="text-[#94A3B8] font-mono text-sm">@arivera_dev</p>
+</div>
+<p class="text-[#CBD5E1] text-base leading-relaxed max-w-2xl">
+                                Senior Full-Stack Engineer. Building at the intersection of developer experience and scalable architecture. Focus on distributed systems and type-safe frontend patterns.
+                            </p>
+<!-- Social Links -->
+<div class="flex gap-4">
+<a class="text-[#94A3B8] hover:text-primary transition-colors flex items-center gap-1 text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="link">link</span>
+<span>github.com/arivera</span>
+</a>
+<a class="text-[#94A3B8] hover:text-primary transition-colors flex items-center gap-1 text-sm" href="#">
+<span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+<span>twitter.com/arivera_dev</span>
+</a>
+</div>
+<!-- Skills -->
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-3 py-1 bg-primary text-[#0F1419] rounded-full text-xs font-bold uppercase tracking-wider">React</span>
+<span class="px-3 py-1 bg-primary text-[#0F1419] rounded-full text-xs font-bold uppercase tracking-wider">Node.js</span>
+<span class="px-3 py-1 bg-primary text-[#0F1419] rounded-full text-xs font-bold uppercase tracking-wider">PostgreSQL</span>
+<span class="px-3 py-1 bg-primary text-[#0F1419] rounded-full text-xs font-bold uppercase tracking-wider">Next.js</span>
+<span class="px-3 py-1 bg-primary text-[#0F1419] rounded-full text-xs font-bold uppercase tracking-wider">Typescript</span>
+</div>
+<!-- Stats -->
+<div class="flex gap-8 pt-4 border-t border-outline-variant/10">
+<div>
+<span class="text-primary font-bold text-lg">24</span>
+<span class="text-[#94A3B8] text-xs block uppercase font-bold tracking-widest">Posts</span>
+</div>
+<div>
+<span class="text-primary font-bold text-lg">89</span>
+<span class="text-[#94A3B8] text-xs block uppercase font-bold tracking-widest">Comments</span>
+</div>
+<div>
+<span class="text-primary font-bold text-lg">312</span>
+<span class="text-[#94A3B8] text-xs block uppercase font-bold tracking-widest">Likes</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Tab Navigation -->
+<div class="flex px-8 border-t border-outline-variant/10 bg-surface-container-low/50">
+<button class="px-6 py-4 text-primary border-b-2 border-primary font-bold text-sm">Posts</button>
+<button class="px-6 py-4 text-[#71767B] hover:text-[#57F1DB] font-bold text-sm transition-colors">Activity</button>
+</div>
+</section>
+<!-- Posts List -->
+<div class="space-y-4">
+<!-- Post Card 1 -->
+<article class="bg-surface-container hover:bg-surface-container-high transition-all p-6 rounded-[1rem] border border-outline-variant/5 group cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors leading-tight">Implementing Type-Safe Event Buses in Distributed Microservices</h3>
+<span class="text-[#94A3B8] text-xs font-mono">2h ago</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-[#8B5CF6]/10 text-[#8B5CF6] rounded-full text-[10px] font-bold uppercase tracking-wider">Architecture</span>
+<span class="px-2 py-0.5 bg-[#8B5CF6]/10 text-[#8B5CF6] rounded-full text-[10px] font-bold uppercase tracking-wider">TypeScript</span>
+</div>
+<div class="flex gap-4 text-[#71767B] text-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+<span class="font-mono">42</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-mono">12</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="material-symbols-outlined text-lg" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+</article>
+<!-- Post Card 2 -->
+<article class="bg-surface-container hover:bg-surface-container-high transition-all p-6 rounded-[1rem] border border-outline-variant/5 group cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors leading-tight">The Future of Edge Computing: React Server Components at the Brink</h3>
+<span class="text-[#94A3B8] text-xs font-mono">1d ago</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-[#8B5CF6]/10 text-[#8B5CF6] rounded-full text-[10px] font-bold uppercase tracking-wider">Frontend</span>
+<span class="px-2 py-0.5 bg-[#8B5CF6]/10 text-[#8B5CF6] rounded-full text-[10px] font-bold uppercase tracking-wider">Next.js</span>
+</div>
+<div class="flex gap-4 text-[#71767B] text-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+<span class="font-mono">128</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-mono">34</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="material-symbols-outlined text-lg" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+</article>
+<!-- Post Card 3 -->
+<article class="bg-surface-container hover:bg-surface-container-high transition-all p-6 rounded-[1rem] border border-outline-variant/5 group cursor-pointer">
+<div class="flex justify-between items-start mb-3">
+<h3 class="text-lg font-bold text-white group-hover:text-primary transition-colors leading-tight">Optimizing PostgreSQL Queries for Multi-tenant SaaS Applications</h3>
+<span class="text-[#94A3B8] text-xs font-mono">3d ago</span>
+</div>
+<div class="flex gap-2 mb-4">
+<span class="px-2 py-0.5 bg-[#8B5CF6]/10 text-[#8B5CF6] rounded-full text-[10px] font-bold uppercase tracking-wider">Backend</span>
+<span class="px-2 py-0.5 bg-[#8B5CF6]/10 text-[#8B5CF6] rounded-full text-[10px] font-bold uppercase tracking-wider">Database</span>
+</div>
+<div class="flex gap-4 text-[#71767B] text-sm">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="favorite">favorite</span>
+<span class="font-mono">85</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-lg" data-icon="chat_bubble">chat_bubble</span>
+<span class="font-mono">19</span>
+</div>
+<div class="flex items-center gap-1.5 ml-auto">
+<span class="material-symbols-outlined text-lg" data-icon="bookmark">bookmark</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
+</div>
+<!-- BottomNavBar -->
+<nav class="lg:hidden fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-safe h-16 bg-[#0F1419]/80 backdrop-blur-xl border-t border-[#30353B]/15 z-50">
+<a class="flex flex-col items-center justify-center text-[#71767B]" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#71767B]" href="#">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#71767B]" href="#">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#2DD4BF] bg-[#2DD4BF]/10 rounded-2xl px-4 py-1" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

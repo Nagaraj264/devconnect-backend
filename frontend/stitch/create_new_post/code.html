@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0F1419;
+            color: #dee3ea;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(27, 32, 37, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .code-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        /* Custom scrollbar for textarea */
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: #171c21;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: #30353b;
+            border-radius: 4px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "on-primary-container": "#00574d",
+                "on-error": "#690005",
+                "secondary-fixed-dim": "#d0bcff",
+                "error-container": "#93000a",
+                "surface-container-lowest": "#0a0f14",
+                "tertiary-fixed-dim": "#4edea3",
+                "on-secondary-container": "#c4abff",
+                "surface-bright": "#353a3f",
+                "surface-dim": "#0f1419",
+                "surface-variant": "#30353b",
+                "on-background": "#dee3ea",
+                "surface-container": "#1b2025",
+                "on-primary-fixed-variant": "#005047",
+                "primary-container": "#2dd4bf",
+                "error": "#ffb4ab",
+                "primary-fixed": "#62fae3",
+                "tertiary": "#66f3b6",
+                "primary-fixed-dim": "#3cddc7",
+                "inverse-surface": "#dee3ea",
+                "tertiary-container": "#44d69b",
+                "on-tertiary-fixed-variant": "#005236",
+                "on-secondary-fixed": "#23005c",
+                "inverse-primary": "#006b5f",
+                "on-tertiary": "#003824",
+                "surface-container-highest": "#30353b",
+                "outline-variant": "#3c4a46",
+                "surface-container-high": "#252a30",
+                "on-surface-variant": "#bacac5",
+                "on-secondary-fixed-variant": "#5516be",
+                "secondary-container": "#571bc1",
+                "primary": "#57f1db",
+                "surface-tint": "#3cddc7",
+                "on-tertiary-container": "#00593b",
+                "on-primary": "#003731",
+                "surface-container-low": "#171c21",
+                "outline": "#859490",
+                "on-surface": "#dee3ea",
+                "background": "#0f1419",
+                "surface": "#0f1419",
+                "on-primary-fixed": "#00201c",
+                "inverse-on-surface": "#2c3136",
+                "secondary-fixed": "#e9ddff",
+                "secondary": "#d0bcff",
+                "on-tertiary-fixed": "#002113",
+                "on-error-container": "#ffdad6",
+                "tertiary-fixed": "#6ffbbe",
+                "on-secondary": "#3c0091"
+              },
+              fontFamily: {
+                "headline": ["Inter"],
+                "body": ["Inter"],
+                "label": ["Inter"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary/30">
+<!-- Top Navigation Bar -->
+<header class="w-full sticky top-0 z-50 bg-[#171C21] transition-colors duration-300">
+<div class="flex justify-between items-center px-6 py-3 max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-[#57F1DB]">Obsidian Flux</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-400 font-medium hover:text-[#57F1DB] transition-all duration-200" href="#">Explore</a>
+<a class="text-slate-400 font-medium hover:text-[#57F1DB] transition-all duration-200" href="#">Feed</a>
+<a class="text-slate-400 font-medium hover:text-[#57F1DB] transition-all duration-200" href="#">Snippets</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors" data-icon="terminal">terminal</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-highest ring-2 ring-outline-variant/20">
+<img alt="User avatar" data-alt="close-up portrait of a developer with glasses in front of a dark screen with glowing lines of code reflecting in their eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBD9qud7_edR8aQZCbaeLe7OhBLEHKv7qhlr5fE24i41TpIRniEsJIxJfihCVhMLCi2UZS3K0vqtdldl8QqyRk7EfctdcSiB20KAuqMi3L5LHnJu6PYxETsR78_Nspeyt5Z6uR916NCgMGgwkQqMZaQytlCVUMSPNrxSDQ8Ogwl-V_2kOTTpXZLuJuxf6U0E8TwCIA9H5KHA8r8vEOzH45cHn0heA287Tvqpi_mUSTyCp0qxOC1ae_7jwPpk3qG3Czdc19l7D5wr8I"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-[720px] mx-auto px-4 py-12">
+<!-- Header Section -->
+<div class="mb-10">
+<div class="flex items-center gap-2 mb-2">
+<span class="label-md font-bold uppercase tracking-widest text-primary text-[10px] code-font px-2 py-1 bg-primary/10 rounded">Drafting Mode</span>
+</div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">Create New Post</h1>
+<p class="text-on-surface-variant mt-2">Share your thoughts, ask questions, or contribute a new technical resource.</p>
+</div>
+<!-- Post Form -->
+<div class="space-y-8">
+<!-- Title Input -->
+<div class="group">
+<input class="w-full bg-transparent border-0 border-b-2 border-outline-variant/20 py-4 text-2xl font-bold focus:ring-0 focus:border-primary transition-all placeholder:text-outline/50" placeholder="Give your post a title..." type="text"/>
+</div>
+<!-- Type Selector -->
+<div class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant code-font">Content Category</label>
+<div class="flex p-1 bg-surface-container-low rounded-full w-max">
+<button class="px-6 py-2 rounded-full text-sm font-semibold transition-all bg-primary-container text-on-primary-container shadow-lg shadow-primary/10">Discussion</button>
+<button class="px-6 py-2 rounded-full text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all">Question</button>
+<button class="px-6 py-2 rounded-full text-sm font-semibold text-on-surface-variant hover:text-on-surface transition-all">Resource</button>
+</div>
+</div>
+<!-- Content Editor -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl ring-1 ring-outline-variant/10">
+<!-- Toolbar -->
+<div class="flex items-center gap-1 p-2 bg-surface-container-high border-b border-outline-variant/10">
+<button class="p-2 rounded hover:bg-surface-container-highest transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="format_bold">format_bold</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-container-highest transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="format_italic">format_italic</span>
+</button>
+<div class="w-px h-6 bg-outline-variant/20 mx-1"></div>
+<button class="p-2 rounded hover:bg-surface-container-highest transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-container-highest transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="link">link</span>
+</button>
+<button class="p-2 rounded hover:bg-surface-container-highest transition-colors text-on-surface-variant hover:text-primary">
+<span class="material-symbols-outlined" data-icon="format_list_bulleted">format_list_bulleted</span>
+</button>
+<div class="ml-auto flex items-center gap-2 pr-2">
+<span class="text-[10px] code-font text-outline uppercase tracking-tighter">Markdown Enabled</span>
+</div>
+</div>
+<!-- Textarea -->
+<textarea class="w-full min-h-[300px] bg-transparent border-0 p-6 text-on-surface leading-relaxed focus:ring-0 placeholder:text-outline/40 text-lg resize-none" placeholder="Write your content here..."></textarea>
+</div>
+<!-- Image Upload Dropzone -->
+<div class="group relative">
+<div class="flex flex-col items-center justify-center w-full min-h-[160px] border-2 border-dashed border-[#1E293B] rounded-xl bg-surface-container-low/50 hover:bg-surface-container-low hover:border-primary/50 transition-all cursor-pointer">
+<div class="flex flex-col items-center justify-center pt-5 pb-6">
+<span class="material-symbols-outlined text-4xl text-outline mb-3 group-hover:text-primary transition-colors" data-icon="cloud_upload">cloud_upload</span>
+<p class="mb-2 text-sm text-on-surface"><span class="font-bold">Click to upload</span> or drag and drop</p>
+<p class="text-xs text-on-surface-variant">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+</div>
+</div>
+</div>
+<!-- Tags Section -->
+<div class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant code-font">Tags</label>
+<div class="flex flex-wrap items-center gap-3 p-4 bg-surface-container-low rounded-xl ring-1 ring-outline-variant/10">
+<div class="flex items-center gap-1.5 bg-secondary-container/30 text-secondary-fixed-dim px-3 py-1 rounded-full text-xs font-bold border border-secondary-container/50">
+<span>#javascript</span>
+<button class="material-symbols-outlined text-[14px]" data-icon="close">close</button>
+</div>
+<div class="flex items-center gap-1.5 bg-secondary-container/30 text-secondary-fixed-dim px-3 py-1 rounded-full text-xs font-bold border border-secondary-container/50">
+<span>#backend</span>
+<button class="material-symbols-outlined text-[14px]" data-icon="close">close</button>
+</div>
+<input class="flex-1 bg-transparent border-0 p-0 text-sm focus:ring-0 placeholder:text-outline/40" placeholder="Add tags..." type="text"/>
+</div>
+<p class="text-[10px] text-outline italic">Tip: Press Enter to create a new tag</p>
+</div>
+<!-- Footer Actions -->
+<div class="flex items-center justify-between pt-8 border-t border-outline-variant/10">
+<button class="px-6 py-3 text-sm font-bold text-on-surface-variant hover:text-on-surface transition-all flex items-center gap-2 group">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform" data-icon="save">save</span>
+                    Save as Draft
+                </button>
+<div class="flex items-center gap-4">
+<button class="px-6 py-3 text-sm font-bold text-outline hover:text-on-surface transition-all">Cancel</button>
+<button class="px-10 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-full shadow-lg shadow-primary/20 hover:scale-105 active:scale-95 transition-all">
+                        Publish Post
+                    </button>
+</div>
+</div>
+</div>
+<!-- Floating Decorative Element -->
+<div class="fixed bottom-12 right-12 hidden lg:block">
+<div class="glass-panel p-6 rounded-2xl border border-outline-variant/10 max-w-[240px]">
+<h4 class="text-xs font-bold text-primary uppercase mb-3 code-font tracking-widest">Editor Tip</h4>
+<p class="text-[12px] text-on-surface-variant leading-relaxed">
+                    Great posts usually include code snippets and high-quality images. Use **Markdown** to format your technical deep-dives.
+                </p>
+<div class="mt-4 pt-4 border-t border-outline-variant/10 flex items-center justify-between">
+<span class="text-[10px] text-outline code-font">Chars: 0</span>
+<span class="text-[10px] text-outline code-font">Words: 0</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Visual Polish: Background Accents -->
+<div class="fixed top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/5 blur-[120px] rounded-full pointer-events-none"></div>
+<div class="fixed bottom-[-10%] right-[-5%] w-[40%] h-[40%] bg-secondary/5 blur-[120px] rounded-full pointer-events-none"></div>
+</body></html>

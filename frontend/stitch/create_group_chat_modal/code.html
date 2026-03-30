@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-secondary-container": "#c4abff",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "on-tertiary": "#003824",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "inverse-surface": "#dee3ea",
+                        "on-primary": "#003731",
+                        "on-error-container": "#ffdad6",
+                        "error-container": "#93000a",
+                        "tertiary-container": "#44d69b",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "on-primary-fixed-variant": "#005047",
+                        "surface-variant": "#30353b",
+                        "primary-container": "#2dd4bf",
+                        "on-secondary-fixed": "#23005c",
+                        "surface-tint": "#3cddc7",
+                        "on-background": "#dee3ea",
+                        "outline-variant": "#3c4a46",
+                        "primary-fixed-dim": "#3cddc7",
+                        "secondary": "#d0bcff",
+                        "primary-fixed": "#62fae3",
+                        "on-primary-container": "#00574d",
+                        "outline": "#859490",
+                        "on-secondary": "#3c0091",
+                        "tertiary": "#66f3b6",
+                        "inverse-on-surface": "#2c3136",
+                        "background": "#0f1419",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-bright": "#353a3f",
+                        "surface-container-highest": "#30353b",
+                        "surface-container-low": "#171c21",
+                        "on-surface": "#dee3ea",
+                        "surface-dim": "#0f1419",
+                        "surface-container": "#1b2025",
+                        "primary": "#57f1db",
+                        "secondary-container": "#571bc1",
+                        "on-tertiary-fixed": "#002113",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-primary-fixed": "#00201c",
+                        "surface-container-lowest": "#0a0f14",
+                        "surface": "#0f1419",
+                        "on-tertiary-container": "#00593b",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "surface-container-high": "#252a30",
+                        "inverse-primary": "#006b5f",
+                        "secondary-fixed": "#e9ddff",
+                        "on-surface-variant": "#bacac5"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-panel {
+            background: rgba(26, 31, 46, 0.8);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            height: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3c4a46;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body min-h-screen flex items-center justify-center p-4">
+<!-- Mock Background Content (Feed) -->
+<div class="fixed inset-0 z-0 opacity-20 pointer-events-none overflow-hidden">
+<nav class="bg-[#0F1419]/80 backdrop-blur-xl flex justify-between items-center px-6 h-16 w-full fixed top-0 z-50 shadow-[0_2px_10px_rgba(0,0,0,0.3)]">
+<span class="text-xl font-black text-[#57F1DB] tracking-tighter">DevNetwork</span>
+<div class="hidden md:flex gap-8">
+<span class="text-[#57F1DB] border-b-2 border-[#57F1DB] pb-1 font-bold">Feed</span>
+<span class="text-slate-400">Groups</span>
+<span class="text-slate-400">Snippets</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-slate-400">notifications</span>
+<div class="w-8 h-8 rounded-full bg-surface-container"></div>
+</div>
+</nav>
+<main class="pt-24 px-8 max-w-6xl mx-auto grid grid-cols-12 gap-6">
+<div class="col-span-3 space-y-4">
+<div class="h-40 bg-surface-container rounded-lg"></div>
+<div class="h-60 bg-surface-container rounded-lg"></div>
+</div>
+<div class="col-span-6 space-y-6">
+<div class="h-96 bg-surface-container rounded-lg"></div>
+<div class="h-96 bg-surface-container rounded-lg"></div>
+</div>
+<div class="col-span-3 space-y-4">
+<div class="h-80 bg-surface-container rounded-lg"></div>
+</div>
+</main>
+</div>
+<!-- Modal Backdrop -->
+<div class="fixed inset-0 bg-background/80 backdrop-blur-md z-[60] flex items-center justify-center p-4">
+<!-- Modal Card -->
+<div class="glass-panel w-full max-w-[560px] rounded-[16px] shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300">
+<!-- Header -->
+<div class="px-8 pt-8 pb-4">
+<h2 class="text-[20px] font-bold text-on-surface tracking-tight leading-tight">Create Group Chat</h2>
+<p class="text-on-surface-variant text-sm mt-1">Start a conversation with your engineering circle.</p>
+</div>
+<!-- Body -->
+<div class="px-8 py-4 space-y-6">
+<!-- Group Name Input -->
+<div class="space-y-2">
+<label class="block text-[14px] font-medium text-on-surface-variant">Group Name</label>
+<div class="relative group">
+<input class="w-full bg-surface-container-low border-b-2 border-outline-variant/20 py-3 px-0 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-all duration-300" placeholder="Backend Wizards" type="text"/>
+</div>
+</div>
+<!-- Search Members -->
+<div class="space-y-2 relative">
+<label class="block text-[14px] font-medium text-on-surface-variant">Search members...</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-0 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+<input class="w-full bg-transparent border-b-2 border-outline-variant/20 py-3 pl-8 pr-0 text-on-surface placeholder:text-on-surface-variant/40 focus:outline-none focus:border-primary transition-all duration-300" type="text"/>
+</div>
+<!-- Dropdown Results -->
+<div class="absolute top-full left-0 w-full mt-2 bg-surface-container-highest/95 backdrop-blur-xl rounded-xl shadow-xl z-10 border border-outline-variant/10 overflow-hidden">
+<div class="p-2 space-y-1">
+<div class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg cursor-pointer transition-colors group">
+<img alt="User" class="w-10 h-10 rounded-full" data-alt="Portrait of a young developer with glasses and a friendly smile, clean minimalist flat design avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuARYjo5p0nr_893wwO7cITl021whqpbZHQ575FHvSpMOqvRQb3_XwWFHL_JohWRH9X8ecr77Ybx2ngmYrsIWTB7OL2WzD8PI0c_M9c0_WX1-yK_-qq4t3CQKmbGj-6hXzEJKJ3wkSVod9mnw4h2zwtoxc_3CluRnwsAsoAbKo61idJTqh1OXzcI7xFyGbIjjCax-KvGX_ag5liMuW_GgN3ECJ3CzugH5I3snHqqWcwZuLHTCbfDivyf8N1xf2w6bsUsbPJ2EJK0hoI"/>
+<div class="flex flex-col">
+<span class="font-semibold text-sm group-hover:text-primary transition-colors">alex_codes</span>
+<span class="text-xs text-on-surface-variant">Senior Go Engineer</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-primary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+<div class="flex items-center gap-3 p-3 hover:bg-white/5 rounded-lg cursor-pointer transition-colors group">
+<img alt="User" class="w-10 h-10 rounded-full" data-alt="Portrait of a female programmer with tech headphones, vibrant professional aesthetic flat design avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAlipgpV5qkWoSQWyIwfmaEekAc6PJjp8bM_yIRIKUKqZM3FHC0sxazZYCZJQdLp1Y4XepYyUXfPHQrZTJ8KeavDh8a9QJZcqIOAts8dyNl0Rgqhrmu8iCOE-3CxPN4yfEQiByGDGQZ1fgFrbDrREy0vjPp5fKjOrvwTtg1ZKZc9yKBsu39nl0DivGsS8I-kO4C8CngGuzT-bzTKKdODSOX20zB4VGhoxvIhKuw_NDMZ3f64b8meQ59Qx4yz5kxKjM8XJn20lhQzzk"/>
+<div class="flex flex-col">
+<span class="font-semibold text-sm group-hover:text-primary transition-colors">sarah_dev</span>
+<span class="text-xs text-on-surface-variant">Cloud Architect</span>
+</div>
+<span class="material-symbols-outlined ml-auto text-primary opacity-0 group-hover:opacity-100 transition-opacity">add_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Selected Members Row -->
+<div class="space-y-3">
+<span class="block text-[12px] font-bold uppercase tracking-widest text-on-surface-variant">Selected Members</span>
+<div class="flex gap-3 overflow-x-auto pb-2 custom-scrollbar">
+<!-- Chip 1 -->
+<div class="flex-shrink-0 flex items-center gap-2 bg-surface-container-high py-1.5 pl-1.5 pr-3 rounded-full group cursor-default">
+<img alt="User" class="w-6 h-6 rounded-full" data-alt="Stylized avatar of a male user with a beard, deep professional colors, high quality vector art" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8ItDx2v2cDOIvHhYQMlFen2MyyeN_tlD24Wz6QisL3mlAcArVSUPAH-RRCPuZm_pY22F3ioorm2pvr38tktFyU_YcBySWfs4ZQIVRbFRT0bg1zHCQlyKWpFZWEhy_k5t4bFruQNrIo4v7g2ZGIZhe1VRU7OVAXnWlFd32vL9CxBEjcqOeeb3_6Mnhd653GthTm7nEf4d-eEeBTcMGcnqwkWrIKeljp8QGH_3hwfASk9DohcYRmPR9kHpsmIFKwLh9wBzxL4LOLIc"/>
+<span class="text-xs font-medium text-on-surface">marcus_infra</span>
+<button class="hover:text-error transition-colors flex items-center">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Chip 2 -->
+<div class="flex-shrink-0 flex items-center gap-2 bg-surface-container-high py-1.5 pl-1.5 pr-3 rounded-full group cursor-default">
+<img alt="User" class="w-6 h-6 rounded-full" data-alt="Stylized avatar of a female developer, sleek modern aesthetic with vibrant highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJ56fX6_tyNzRFvQFI3Q2KjzBIqtR5EgiXni6i3mRE6Qo1PzXbJYTwupOvLDmW6XdRN9MQbfkfImUJ-KEiCHXUMa-cqEPejWnWqKXTo3_z2lMrMdtPV0ksqGqM_w2P7ZjBISEi2U28L4_VGQZyzhzgBBFt3CvJLU1E9oPrC-mdB2LUKW4HNs_bpxdNjC5nzQ81Dfyxp0PJiYx14V9faLlLlsdz-obP8OVY71qStQyXWNojamZyy7H6LE8nblAfRUjs330kPXvDUvU"/>
+<span class="text-xs font-medium text-on-surface">lina_flux</span>
+<button class="hover:text-error transition-colors flex items-center">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+<!-- Chip 3 -->
+<div class="flex-shrink-0 flex items-center gap-2 bg-surface-container-high py-1.5 pl-1.5 pr-3 rounded-full group cursor-default">
+<img alt="User" class="w-6 h-6 rounded-full" data-alt="Friendly male avatar with tech glasses and a hoodie, minimalist vector style" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3vsogbxw9E94gWIexSyxEPt606dceWe9sjsdc0120_vUDyoe0Jncn8FIVLt3QGv_cwm50bpl_wD_ljbtfIIyijTTqsdhaWSey-9FJtpZdpJVbJDOUaDbyIpCO8lx4g6NxOPxyDKJ2tCxBV-cFDoyKtcYMapnW2s5cj3V2gDdrfj13UqByuwEcSraztlGADNllQlm3rqvL9nvsNUWGDxODX3LYCEIcYfK3UpPArH1DiX3eVGgUdR-kT-POm_JmvLLIvnB9rnLr4RY"/>
+<span class="text-xs font-medium text-on-surface">kevin.py</span>
+<button class="hover:text-error transition-colors flex items-center">
+<span class="material-symbols-outlined text-[16px]">close</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="px-8 py-8 flex justify-end items-center gap-4">
+<button class="px-6 py-2.5 text-sm font-semibold text-on-surface-variant hover:text-on-surface hover:bg-white/5 rounded-full transition-all duration-200">
+                    Cancel
+                </button>
+<button class="px-8 py-2.5 text-sm font-bold text-on-primary bg-gradient-to-br from-primary to-primary-container rounded-full shadow-[0_4px_15px_rgba(87,241,219,0.3)] hover:shadow-[0_0_20px_rgba(87,241,219,0.5)] active:scale-95 transition-all duration-300">
+                    Create Group
+                </button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation (Mobile View Shell Requirement) -->
+<div class="md:hidden fixed bottom-0 w-full rounded-t-3xl z-50 bg-[#0F1419]/90 backdrop-blur-lg border-t border-white/5 flex justify-around items-center px-4 pb-6 pt-2 shadow-[0_-4px_20px_rgba(0,0,0,0.5)]">
+<div class="flex flex-col items-center justify-center text-slate-500 p-2">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-['Inter'] mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 p-2">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-['Inter'] mt-1">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-gradient-to-tr from-[#57F1DB] to-[#2DD4BF] text-[#0F1419] rounded-2xl p-2 shadow-[0_0_12px_rgba(87,241,219,0.4)]">
+<span class="material-symbols-outlined" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-['Inter'] mt-1">Groups</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-500 p-2">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest font-['Inter'] mt-1">Profile</span>
+</div>
+</div>
+</body></html>

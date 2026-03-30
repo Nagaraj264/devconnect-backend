@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevConnect | Messages</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-variant": "#30353b",
+              "on-error": "#690005",
+              "tertiary-fixed": "#6ffbbe",
+              "tertiary": "#66f3b6",
+              "tertiary-fixed-dim": "#4edea3",
+              "surface-tint": "#3cddc7",
+              "surface-dim": "#0f1419",
+              "on-tertiary-fixed": "#002113",
+              "secondary": "#d0bcff",
+              "on-secondary-fixed": "#23005c",
+              "surface-container-low": "#171c21",
+              "on-tertiary": "#003824",
+              "on-background": "#dee3ea",
+              "on-secondary-fixed-variant": "#5516be",
+              "on-error-container": "#ffdad6",
+              "primary-container": "#2dd4bf",
+              "secondary-container": "#571bc1",
+              "on-tertiary-fixed-variant": "#005236",
+              "on-secondary": "#3c0091",
+              "surface-container-lowest": "#0a0f14",
+              "inverse-on-surface": "#2c3136",
+              "outline": "#859490",
+              "on-surface": "#dee3ea",
+              "surface-container-highest": "#30353b",
+              "primary": "#57f1db",
+              "secondary-fixed-dim": "#d0bcff",
+              "on-secondary-container": "#c4abff",
+              "primary-fixed-dim": "#3cddc7",
+              "outline-variant": "#3c4a46",
+              "secondary-fixed": "#e9ddff",
+              "error-container": "#93000a",
+              "inverse-primary": "#006b5f",
+              "on-primary": "#003731",
+              "on-tertiary-container": "#00593b",
+              "error": "#ffb4ab",
+              "surface-bright": "#353a3f",
+              "on-surface-variant": "#bacac5",
+              "surface-container-high": "#252a30",
+              "primary-fixed": "#62fae3",
+              "on-primary-fixed-variant": "#005047",
+              "on-primary-fixed": "#00201c",
+              "surface": "#0f1419",
+              "background": "#0f1419",
+              "inverse-surface": "#dee3ea",
+              "tertiary-container": "#44d69b",
+              "surface-container": "#1b2025"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30353B;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body overflow-hidden">
+<!-- Main Layout Container -->
+<div class="flex h-screen w-full">
+<!-- SideNavBar (JSON Component) -->
+<aside class="fixed left-0 top-0 h-full flex flex-col py-6 bg-[#171C21] dark:bg-[#171C21] h-screen w-[340px] border-none font-['Inter'] font-medium text-sm tracking-tight z-50">
+<div class="px-8 mb-10 flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">terminal</span>
+</div>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#2DD4BF]">DevConnect</h1>
+<p class="text-[10px] text-slate-500 font-mono tracking-widest uppercase">The Kinetic Terminal</p>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Tab: Home -->
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-slate-200 transition-colors hover:bg-[#1B2025] hover:text-[#2DD4BF] rounded-r-full transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span>Home</span>
+</a>
+<!-- Tab: Messages (Active) -->
+<a class="flex items-center gap-4 px-4 py-3 text-[#2DD4BF] bg-[#1B2025] rounded-r-full font-bold scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="chat_bubble" style="font-variation-settings: 'FILL' 1;">chat_bubble</span>
+<span>Messages</span>
+</a>
+<!-- Tab: Network -->
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-slate-200 transition-colors hover:bg-[#1B2025] hover:text-[#2DD4BF] rounded-r-full transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Network</span>
+</a>
+<!-- Tab: Explore -->
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-slate-200 transition-colors hover:bg-[#1B2025] hover:text-[#2DD4BF] rounded-r-full transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span>Explore</span>
+</a>
+<!-- Tab: Settings -->
+<a class="flex items-center gap-4 px-4 py-3 text-slate-400 hover:text-slate-200 transition-colors hover:bg-[#1B2025] hover:text-[#2DD4BF] rounded-r-full transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-8 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold py-4 rounded-xl shadow-lg shadow-primary/10 hover:shadow-primary/20 transition-all flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">add</span>
+                    New Chat
+                </button>
+<div class="mt-8 flex items-center gap-3 p-3 bg-surface-container rounded-2xl border border-outline-variant/10">
+<img alt="User Profile Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="professional headshot of a developer in a modern studio setting with soft cyan ambient lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIuz_E-YmGMOcugSzVpHQMBu8OCN0ZJDF4LbY79h48YIlwmcOR6Z5cG39QEZs-FLTzPXPVe9TqlA6JPlmMaQ5cM79H8P8U3PYq2HhMq84-NSh7YRzLrxzEVzCpsglmQgMESVdfwG-pwE7b5asbC59gkMdGdYTa6sLY5wp0_D8KznCpgcxtQzethrOAAZF7NOC-OhuGVKd4K8unBJQLPZRWWuHH6z02_mcud577Qvr4BkNjFNs13EolZQDilNr87dnfQ8_q_YR1PQw"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold truncate">Alex Chen</p>
+<p class="text-[10px] text-primary-fixed-dim font-mono">Lvl 42 Archon</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Message Interface -->
+<main class="ml-[340px] flex flex-1 overflow-hidden">
+<!-- Left Panel: Conversation List -->
+<section class="w-[340px] bg-[#171C21] border-r border-outline-variant/10 flex flex-col">
+<div class="p-6 pb-4">
+<div class="flex justify-between items-center mb-6">
+<h2 class="text-2xl font-bold tracking-tight text-on-surface">Messages</h2>
+<button class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 text-sm">search</span>
+<input class="w-full bg-surface-container-lowest border-none border-b border-outline-variant/20 focus:ring-0 focus:border-primary text-sm rounded-lg pl-10 py-3 transition-all placeholder:text-slate-600" placeholder="Search transmissions..." type="text"/>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto px-2 pb-6 space-y-1">
+<!-- Item 1: Frontend Squad (Active) -->
+<div class="relative p-4 rounded-2xl bg-surface-container cursor-pointer transition-all group border-l-4 border-primary">
+<div class="flex gap-4">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="absolute top-0 right-0 w-8 h-8 rounded-lg border-2 border-surface-container object-cover z-20" data-alt="close up of a modern abstract logo with vibrant teal and blue shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABU_1bVeoM-H95uBh82QM2RRwdyi35YBcG4vf2P3OGMBsby5OHNPoeR9Zvxft3b3m8kVQYMU2w-pkkRcCWx_zXAUD5kRtWTRrqreJVMCeXxzRTyvLaUsdc5ztM_VbPRT43uwvCnm2k9C9R2VinqfKnNmC7FJDMvKwZTose8v0W5mMyf05-8J23nNbTQK854HFqre1xhpdyW4SI5Oglhbzn19a3_ZKy4I71IyqC6FzAaSfKc9SvyuqGIRv_aDReYv5OOpsoaa3P0Eg"/>
+<img class="absolute bottom-0 left-0 w-8 h-8 rounded-lg border-2 border-surface-container object-cover z-10" data-alt="portrait of a young tech professional woman with glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7N6RQYn7o5fVtbby-gczv0nE-j_3YrNO-g1HQlBBqd1A8L3ejwoMOV-waJ8O1pn_MgF6cDX6EWPasllGbhzSRTZK3wDauobKIX4ql5Ga65bdqcQo8f3sz3UwKvMc79stNxzitE3Pg5oI6ReSCeHtulYnXdOjEMfuXoMZAUSoijFsOYtKNCTqNVY1zjtdMrgoCrDf8L_Z94wWbbVlA6m1qB_K8mnRVSiY4JkTbvQWL874l3fjePIjbvStr6P73gXGIYYz9akqE-58"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="text-sm font-bold truncate">Frontend Squad</h3>
+<span class="text-[10px] font-mono text-primary whitespace-nowrap">2m ago</span>
+</div>
+<p class="text-xs text-on-surface font-semibold truncate mt-1">Did anyone see the new React docs?</p>
+</div>
+</div>
+</div>
+<!-- Item 2: Alex Rivera -->
+<div class="p-4 rounded-2xl hover:bg-surface-container/50 cursor-pointer transition-all group">
+<div class="flex gap-4">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="headshot of a man with a beard smiling warmly in front of a blurred urban background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0mM7qPBIUPXkfqBYGOqq80NFralr3qbwaFhoYvUOEzrbzkdSBqJkh5uNevBUsPt72N-ost4U5r9sv98wOIpbPLExT2vgACDzdNNLRBd3kwZkGTjJV_YeIIxoPoiDkkyMDvAtEKEs-I0667vgjbggNuwCYZ3xvU8Fe5cgns7ukgqLOE3BCJUeUCZ9Bb-vEcDojBCUnYhkYvex20tkTsCuawhae2uNAbx-_jdKyj6fZ4E7R220tiPlH6aJEt9_9gp1nW91M4sySK9I"/>
+<span class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-[#171C21] rounded-full"></span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="text-sm font-medium text-on-surface truncate">Alex Rivera</h3>
+<span class="text-[10px] font-mono text-slate-500 whitespace-nowrap">1h ago</span>
+</div>
+<p class="text-xs text-slate-500 truncate mt-1">Let's review that PR later.</p>
+</div>
+</div>
+</div>
+<!-- Item 3: Sarah Miller -->
+<div class="p-4 rounded-2xl hover:bg-surface-container/50 cursor-pointer transition-all group">
+<div class="flex gap-4">
+<div class="relative w-12 h-12 flex-shrink-0">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="professional studio portrait of a woman with curly hair looking confident" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzYVOJbt8ABCgeIHuSO9ePxLin6N-ZfKBze7vb6-BBFsbf2lLlpaM_FJKhFJanc7TGpRrt-X7OkcmVYhgVi9VRAezYV5ltsU-UbnfNVY44hIV3WplB8FdGoCWo0OHYw5SqZDmyKzRbvkmjBZFLZF5agwmJiLqNriAUCMwFOvv-o5m1k9leg07Vv4SjEE3usuIVKMlD2mQTagRtP0HCAvdSvY9JU8HgdFdxC03xDJbpzCmI4wM-DsMvYRY_VBjOmSkzgmgpgEjSqP8"/>
+</div>
+<div class="flex-1 min-w-0">
+<div class="flex justify-between items-start">
+<h3 class="text-sm font-medium text-on-surface truncate">Sarah Miller</h3>
+<span class="text-[10px] font-mono text-slate-500 whitespace-nowrap">3h ago</span>
+</div>
+<p class="text-xs text-slate-500 truncate mt-1">Thanks for the help!</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Right Panel: Active Chat Window -->
+<section class="flex-1 flex flex-col bg-surface relative">
+<!-- Chat Header -->
+<header class="h-20 flex items-center justify-between px-8 bg-surface-container-low/80 backdrop-blur-xl border-b border-outline-variant/10 z-10">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-surface-container-highest flex items-center justify-center text-primary font-mono font-bold text-xs">
+                            FS
+                        </div>
+<div>
+<h2 class="text-lg font-bold leading-none">Frontend Squad</h2>
+<p class="text-xs text-slate-500 mt-1 flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                8 Members Online
+                            </p>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">videocam</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="p-2 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Message Area -->
+<div class="flex-1 overflow-y-auto p-8 space-y-8">
+<!-- Date Divider -->
+<div class="flex items-center gap-4">
+<div class="flex-1 h-px bg-outline-variant/20"></div>
+<span class="text-[10px] font-mono text-slate-500 uppercase tracking-widest">Today</span>
+<div class="flex-1 h-px bg-outline-variant/20"></div>
+</div>
+<!-- Received Message -->
+<div class="flex items-start gap-4 max-w-2xl">
+<img class="w-8 h-8 rounded-lg object-cover mt-1" data-alt="small square avatar of a friendly looking man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL18pxxLNDpWcQFTrqpydDLIGp3G6lttwCW5aS2wFcI3IHAluMGEwXR77O0bopAQFKedpwevkJ2hmkEr7F-8qrfHtU2iMWP25RDdrKT-4uOAduPCaN2VLxxjWzI_P-S-SNYzaA8kEK_rbniC_UJOxd23kba1fDcS1EVnvezHB0GnwUWz6sWEcTKpq63_z641BoNiiN_LfhWqHMbKXlxJg8WcB8EJ9mJ2oymtCQWULB480xNgeBFbyijqiVV_m2VuHvT03IlB0RwLk"/>
+<div>
+<div class="flex items-baseline gap-3 mb-1.5">
+<span class="text-sm font-bold">Alex Rivera</span>
+<span class="text-[10px] font-mono text-slate-500">10:05 AM</span>
+</div>
+<div class="bg-surface-container-high text-on-surface p-4 rounded-2xl rounded-tl-none border border-outline-variant/5">
+<p class="text-sm leading-relaxed">Has anyone tried the new server actions in Next.js 14 yet?</p>
+</div>
+</div>
+</div>
+<!-- Sent Message -->
+<div class="flex items-start gap-4 max-w-2xl ml-auto flex-row-reverse">
+<div class="flex flex-col items-end">
+<div class="flex items-baseline gap-3 mb-1.5">
+<span class="text-[10px] font-mono text-slate-500">10:07 AM</span>
+<span class="text-sm font-bold">You</span>
+</div>
+<div class="bg-gradient-to-br from-primary to-primary-container text-on-primary-container p-4 rounded-2xl rounded-tr-none shadow-lg shadow-primary/10">
+<p class="text-sm leading-relaxed font-medium">I just started playing with them this morning. They feel pretty powerful for form handling. Check this out:</p>
+<div class="mt-3 p-3 bg-on-primary/10 rounded-lg font-mono text-xs border border-on-primary/10">
+<span class="text-on-primary-container opacity-60 italic">// serverAction.ts</span><br/>
+<span class="text-on-primary">async function</span> <span class="text-white">createPost</span>(formData: FormData) { ... }
+                                </div>
+</div>
+</div>
+</div>
+<!-- Received Message 2 -->
+<div class="flex items-start gap-4 max-w-2xl">
+<img class="w-8 h-8 rounded-lg object-cover mt-1" data-alt="small square avatar of a professional woman with a soft smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkS9qwvvIIjL9FBO4YRNOfELLD44CI8SlwsXxb-gg02zhGuChpdisgW-j1PJOGyoUngk-XPcKeDvSdsbCgeIwVIc7xOkH1yglv7nR85C2KxmrnUj5e7zbMRI8R7AvsAInEybu0DAn_c5L-PcScS8-mKFvnNGkHLEJRGwoPSk4eKKif9PzRVRtaQBXfMYFi3WYM3JDIvvC9MAOj6iDISWXatyvRSd3guFv2Z-IC84dM1LtErBAmVyLsBrMoH9Jt47fr3UDf9gucsVM"/>
+<div>
+<div class="flex items-baseline gap-3 mb-1.5">
+<span class="text-sm font-bold">Sarah Miller</span>
+<span class="text-[10px] font-mono text-slate-500">10:10 AM</span>
+</div>
+<div class="bg-surface-container-high text-on-surface p-4 rounded-2xl rounded-tl-none border border-outline-variant/5">
+<p class="text-sm leading-relaxed">I'm still stuck on the older patterns, but I want to migrate the dashboard soon. Any major breaking changes you noticed?</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Input Bar -->
+<footer class="p-6 bg-surface">
+<div class="max-w-4xl mx-auto bg-surface-container rounded-2xl p-2 flex items-end gap-2 border border-outline-variant/10 shadow-xl">
+<button class="p-3 text-slate-500 hover:text-primary transition-colors flex-shrink-0">
+<span class="material-symbols-outlined">attach_file</span>
+</button>
+<textarea class="flex-1 bg-transparent border-none focus:ring-0 text-sm py-3 px-2 resize-none placeholder:text-slate-600 max-h-32" placeholder="Type a message..." rows="1"></textarea>
+<div class="flex gap-1 pb-1 pr-1">
+<button class="p-2 text-slate-500 hover:text-primary transition-colors">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</button>
+<button class="w-10 h-10 bg-gradient-to-br from-primary to-primary-container text-on-primary-container rounded-xl flex items-center justify-center shadow-md hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
+</button>
+</div>
+</div>
+<div class="flex justify-center mt-3">
+<p class="text-[10px] font-mono text-slate-600 tracking-wider">COMMAND + ENTER TO BROADCAST</p>
+</div>
+</footer>
+</section>
+</main>
+</div>
+</body></html>

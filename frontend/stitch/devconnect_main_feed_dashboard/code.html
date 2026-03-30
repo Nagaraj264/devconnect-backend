@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DevConnect | Developer Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#003824",
+              "on-background": "#dee3ea",
+              "on-tertiary-fixed": "#002113",
+              "on-error": "#690005",
+              "on-secondary": "#3c0091",
+              "surface-dim": "#0f1419",
+              "surface": "#0f1419",
+              "outline-variant": "#3c4a46",
+              "surface-tint": "#3cddc7",
+              "primary-fixed-dim": "#3cddc7",
+              "on-surface-variant": "#bacac5",
+              "on-primary": "#003731",
+              "inverse-on-surface": "#2c3136",
+              "tertiary-fixed": "#6ffbbe",
+              "surface-container": "#1b2025",
+              "on-secondary-fixed-variant": "#5516be",
+              "surface-variant": "#30353b",
+              "inverse-primary": "#006b5f",
+              "surface-container-low": "#171c21",
+              "surface-container-highest": "#30353b",
+              "error": "#ffb4ab",
+              "on-tertiary-container": "#00593b",
+              "secondary-fixed": "#e9ddff",
+              "surface-container-high": "#252a30",
+              "secondary-fixed-dim": "#d0bcff",
+              "on-primary-fixed": "#00201c",
+              "background": "#0f1419",
+              "secondary": "#d0bcff",
+              "on-primary-fixed-variant": "#005047",
+              "on-surface": "#dee3ea",
+              "on-error-container": "#ffdad6",
+              "primary-container": "#2dd4bf",
+              "tertiary": "#66f3b6",
+              "on-primary-container": "#00574d",
+              "outline": "#859490",
+              "surface-bright": "#353a3f",
+              "primary": "#57f1db",
+              "on-secondary-fixed": "#23005c",
+              "on-secondary-container": "#c4abff",
+              "tertiary-fixed-dim": "#4edea3",
+              "surface-container-lowest": "#0a0f14",
+              "secondary-container": "#571bc1",
+              "inverse-surface": "#dee3ea",
+              "tertiary-container": "#44d69b",
+              "on-tertiary-fixed-variant": "#005236",
+              "error-container": "#93000a",
+              "primary-fixed": "#62fae3"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            background: rgba(27, 32, 37, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f1419;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #30353b;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<div class="flex min-h-screen max-w-[1440px] mx-auto relative">
+<!-- Left Sidebar (SideNavBar) -->
+<aside class="hidden lg:flex flex-col w-64 h-screen sticky left-0 top-0 bg-surface-container-low border-r border-white/5">
+<div class="p-8">
+<div class="text-2xl font-black text-primary tracking-tighter flex items-center gap-2">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">terminal</span>
+                    DevConnect
+                </div>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Feed (Active) -->
+<a class="flex items-center gap-4 bg-gradient-to-r from-[#57F1DB]/10 to-transparent text-primary border-l-4 border-primary-container py-4 px-6 transition-all duration-300 translate-x-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+<span class="font-mono text-sm font-bold uppercase tracking-widest">Feed</span>
+</a>
+<!-- Explore -->
+<a class="flex items-center gap-4 text-secondary-fixed-dim opacity-60 py-4 px-6 hover:bg-surface-container hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">explore</span>
+<span class="font-mono text-sm font-bold uppercase tracking-widest">Explore</span>
+</a>
+<!-- Messages -->
+<a class="flex items-center gap-4 text-secondary-fixed-dim opacity-60 py-4 px-6 hover:bg-surface-container hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">chat_bubble</span>
+<span class="font-mono text-sm font-bold uppercase tracking-widest">Messages</span>
+</a>
+<!-- Notifications -->
+<a class="flex items-center gap-4 text-secondary-fixed-dim opacity-60 py-4 px-6 hover:bg-surface-container hover:text-primary transition-colors group relative" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">notifications</span>
+<span class="font-mono text-sm font-bold uppercase tracking-widest">Notifications</span>
+<span class="absolute right-4 bg-primary text-on-primary text-[10px] font-bold px-1.5 py-0.5 rounded-full">3</span>
+</a>
+<!-- Profile -->
+<a class="flex items-center gap-4 text-secondary-fixed-dim opacity-60 py-4 px-6 hover:bg-surface-container hover:text-primary transition-colors group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">person_pin</span>
+<span class="font-mono text-sm font-bold uppercase tracking-widest">Profile</span>
+</a>
+</nav>
+<div class="mt-auto p-6 space-y-6">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-full shadow-[0_8px_20px_-6px_rgba(87,241,219,0.4)] hover:scale-[1.02] active:scale-95 transition-all">
+                    Create Post
+                </button>
+<div class="flex items-center gap-3 p-3 bg-surface-container rounded-xl">
+<div class="relative w-10 h-10 rounded-full overflow-hidden border border-primary/20">
+<img alt="User profile avatar" class="w-full h-full object-cover" data-alt="professional portrait of a young developer with glasses and a friendly smile, clean minimalist tech background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5G6eAbzPBu9fCqTMM3U7ky6uzQ3CWiVL_csX2sd0uMsOH_cMC4LeE1pOkfYBXYYqD1CkZc6O59ssh_OspDvzvxbey3Q4U5c90_l4He_EP18LXZ_igNQTVXG6XcH3V7rB9K_eXjOl2XWyovIZ-lo0-vpMwBgoSGEoQXH2lTZW9bSTDBW1iozFLwjuJQZ5hHuGpblxtKSmGxxQ_XtE50IByMOt5gzhFHgeUCJ6q3eTQRxZEZ-CM0zC1i7jm9uAm0NQee5f6UzCltlU"/>
+<div class="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-surface-container rounded-full"></div>
+</div>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Dev Explorer</p>
+<p class="text-xs text-on-surface-variant truncate">@dev_pro</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">more_vert</span>
+</div>
+</div>
+</aside>
+<!-- Main Column -->
+<main class="flex-1 max-w-[680px] px-6 py-8 space-y-8">
+<!-- Create Post Composer -->
+<div class="glass-effect rounded-2xl p-5 border border-white/5 shadow-2xl">
+<div class="flex gap-4">
+<img alt="User avatar" class="w-12 h-12 rounded-full ring-2 ring-primary/20" data-alt="profile avatar of a male developer with short brown hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgjGYq5CyW8yEswtuu2abexAWI9ZRfa01uU957tKE9sbufUsFGjAtfAZr1D8wKKBhBsIgPT-6B25f_oIh0nk3Zy89DlPitRWAHEipCvqVKpfZ6977XXon8p2w6gZuzdgg1zti8P9tnovfBEKmnuXDPbLtpeC6fvq82xUcbd062Nz_Mljuvc6MTOaVX8mtZIJ9D7WfHAqerbP9wReKduO1lkzE6sSCngQHTpljDYleEFyqp94JwAYDfY9BNZHB15jINg-4PiibmH84"/>
+<div class="flex-1">
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-on-surface-variant/50 resize-none h-20 font-body text-lg" placeholder="Share something with the collective..."></textarea>
+<div class="flex items-center justify-between mt-4 pt-4 border-t border-white/5">
+<div class="flex gap-2">
+<button class="p-2 hover:bg-surface-variant rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">image</span>
+</button>
+<button class="p-2 hover:bg-surface-variant rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">code</span>
+</button>
+<button class="p-2 hover:bg-surface-variant rounded-full text-primary transition-colors">
+<span class="material-symbols-outlined">link</span>
+</button>
+</div>
+<button class="px-8 py-2.5 bg-gradient-to-r from-primary to-primary-container text-on-primary-container font-bold rounded-full hover:shadow-[0_0_15px_rgba(87,241,219,0.3)] transition-all">
+                                Post
+                            </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Filter Tabs -->
+<div class="flex gap-8 border-b border-white/5 px-2">
+<button class="pb-4 text-primary font-bold border-b-2 border-primary tracking-tight">All</button>
+<button class="pb-4 text-on-surface-variant font-medium hover:text-on-surface transition-colors tracking-tight">Questions</button>
+<button class="pb-4 text-on-surface-variant font-medium hover:text-on-surface transition-colors tracking-tight">Resources</button>
+<button class="pb-4 text-on-surface-variant font-medium hover:text-on-surface transition-colors tracking-tight">Discussions</button>
+</div>
+<!-- Post Feed -->
+<div class="space-y-6">
+<!-- Post Card 1: Code Centric -->
+<article class="bg-surface-container rounded-xl p-6 border border-white/5 hover:border-primary/20 transition-colors group">
+<header class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="User avatar" class="w-10 h-10 rounded-full" data-alt="female software engineer portrait with bright focused eyes and colorful background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDxLnEDuem8LTvcYM0SjbvDdopjvk8GH8yyrS_VX_JBS2Xz7q8cBppFFSgMEy8Y0hlyg5Q73Z53d72PHXMHNUXfMpEJwdiWLlC0VoGVRs3zNUwjx2YAldjyUw1bHF8rwlxxLacdIFWJXYDzifuqfgApPWJkpjI9gmrpWQ5zsooVGZz1mG9aTKlN7cO_3wPidmiHf22FiPNqRvxWAewbOm7VXx1HpjFV1wuoaQcc5iLW7ritFpUzWgk6MtYwqmnuMHFc3EDdyiuIoO4"/>
+<div>
+<h3 class="font-bold text-on-surface">Sara Jenkins <span class="text-on-surface-variant font-normal text-sm ml-2">@sara_codes</span></h3>
+<p class="text-xs text-on-surface-variant">2h ago • Pro Member</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</header>
+<h2 class="text-xl font-extrabold mb-3 leading-tight tracking-tight">Implementing Type-Safe Middleware in Next.js 14</h2>
+<p class="text-on-surface-variant mb-6 leading-relaxed">Finally cracked the pattern for end-to-end type safety in the middleware layer. This setup ensures that your context is strictly typed before it ever reaches your route handlers.</p>
+<!-- Code Block -->
+<div class="bg-surface-container-lowest rounded-lg p-5 font-mono text-sm border border-outline-variant/10 relative group/code mb-6 overflow-hidden">
+<div class="absolute top-3 right-3 opacity-0 group-hover/code:opacity-100 transition-opacity">
+<button class="bg-surface-variant/50 p-1.5 rounded-md hover:bg-primary/20 hover:text-primary text-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">content_copy</span> Copy
+                            </button>
+</div>
+<pre class="text-primary-fixed leading-relaxed"><span class="text-secondary">export const</span> <span class="text-primary">middleware</span> = (req: <span class="text-tertiary">NextRequest</span>) =&gt; {
+  <span class="text-secondary">const</span> session = <span class="text-primary">getSession</span>(req);
+  
+  <span class="text-on-surface-variant">// Enhanced context injection</span>
+  <span class="text-secondary">return</span> <span class="text-primary">NextResponse</span>.<span class="text-primary">next</span>({
+    headers: { <span class="text-tertiary">'x-user-id'</span>: session.id }
+  });
+};</pre>
+</div>
+<!-- Tags -->
+<div class="flex gap-2 mb-6">
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary text-xs font-bold rounded-full">#React</span>
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary text-xs font-bold rounded-full">#Prisma</span>
+<span class="px-3 py-1 bg-secondary-container/20 text-secondary text-xs font-bold rounded-full">#Typescript</span>
+</div>
+<footer class="flex items-center gap-6 pt-4 border-t border-white/5">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-secondary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+<span class="text-sm font-bold">1.2k</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">mode_comment</span>
+<span class="text-sm font-bold">48</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors ml-auto">
+<span class="material-symbols-outlined text-xl">bookmark</span>
+</button>
+</footer>
+</article>
+<!-- Post Card 2: Long Form -->
+<article class="bg-surface-container rounded-xl p-6 border border-white/5 hover:border-primary/20 transition-colors">
+<header class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-3">
+<img alt="User avatar" class="w-10 h-10 rounded-full" data-alt="senior developer with graying hair and beard, wearing a hoodie in a dark room with neon lights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxfsO4QTbI-xJ2lxeuAqAKm3bNBykx0A-rRUEr8ldKVuCJWlfFK8IyNtDtMB69ps0O8_uK2ViqkrArKju2gg7gJx94QVbO-s0BUtzEqh181Ydn1begdIyIyZcXlNVMecGjkgPAuE6Bd8hp-ZZuo748Dwjk-bQQM8TUEGvHwZgf2fioz0Fwe1Oe_Ql4DogjjK2ybj7L4LWgwNpTFbaGz-D_BWT_Bm6CoWMwYL82KeWZc0YoihyOFtv4zSxIz51Qt37QdCt27aRPHJs"/>
+<div>
+<h3 class="font-bold text-on-surface">Marcus Thorne <span class="text-on-surface-variant font-normal text-sm ml-2">@mthorne_dev</span></h3>
+<p class="text-xs text-on-surface-variant">4h ago</p>
+</div>
+</div>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</header>
+<h2 class="text-xl font-extrabold mb-3 leading-tight tracking-tight">The Future of AI-Assisted Architecture: Beyond Copilot</h2>
+<p class="text-on-surface-variant mb-6 leading-relaxed">
+                        We're moving into an era where LLMs won't just suggest functions, but will actively refactor entire system designs based on performance telemetry. I've spent the last month experimenting with autonomous agent loops that suggest database schema changes... 
+                        <span class="text-primary cursor-pointer hover:underline font-bold">Read more</span>
+</p>
+<div class="aspect-video w-full rounded-lg bg-surface-container-lowest overflow-hidden border border-outline-variant/10 mb-6">
+<img alt="Abstract visualization" class="w-full h-full object-cover opacity-80" data-alt="high-tech abstract neural network visualization with cyan and magenta neon glowing lines on deep black background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiZrpeJoW3lSvEl3buSfCEsfE21HEhgMo2LITe2HKhSgCEiaWxCK37vKbnWynNgtuQRadVg2O8BaxeT_Ozao29WOfiCcvOeYFxwp6kaDqySNlSLVrQAD-Z5IO91MyLXR4v4l6SfqsxdF7W6ys0MJMJ0p9YUguYmvJ_m15xQHKxyLPx5lWB3dFS7o5pevKLiSaxtphphpjpfhG3pKgATeQB7o0LdeD3YaKxoEyPsTDpDzTbGe6vnKOPA9_IMWjlgrtmYa8-Y7rPNAM"/>
+</div>
+<footer class="flex items-center gap-6 pt-4 border-t border-white/5">
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-secondary-fixed-dim transition-colors">
+<span class="material-symbols-outlined text-xl">favorite</span>
+<span class="text-sm font-bold">856</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-xl">mode_comment</span>
+<span class="text-sm font-bold">112</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors ml-auto">
+<span class="material-symbols-outlined text-xl">bookmark</span>
+</button>
+</footer>
+</article>
+</div>
+</main>
+<!-- Right Sidebar -->
+<aside class="hidden xl:flex flex-col w-[320px] h-screen sticky top-0 py-8 px-6 space-y-8 overflow-y-auto">
+<!-- Search Bar -->
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-surface-container-low border-none border-b-2 border-outline-variant/20 focus:border-primary focus:ring-0 rounded-t-lg pl-12 py-3 text-sm transition-all" placeholder="Search collective..." type="text"/>
+</div>
+<!-- Trending Tags Card -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<h3 class="font-black text-xs uppercase tracking-[0.2em] text-on-surface-variant mb-6 flex items-center justify-between">
+                    Trending Tech
+                    <span class="material-symbols-outlined text-sm">trending_up</span>
+</h3>
+<div class="space-y-4">
+<div class="group cursor-pointer">
+<p class="text-primary font-bold text-sm">#javascript</p>
+<p class="text-xs text-on-surface-variant">1.2k posts · Trending in Web</p>
+</div>
+<div class="group cursor-pointer">
+<p class="text-primary font-bold text-sm">#rust_lang</p>
+<p class="text-xs text-on-surface-variant">842 posts · Trending in Backend</p>
+</div>
+<div class="group cursor-pointer">
+<p class="text-primary font-bold text-sm">#nextjs14</p>
+<p class="text-xs text-on-surface-variant">520 posts · 48 new today</p>
+</div>
+<div class="group cursor-pointer">
+<p class="text-primary font-bold text-sm">#ai_agents</p>
+<p class="text-xs text-on-surface-variant">311 posts · High activity</p>
+</div>
+<div class="group cursor-pointer">
+<p class="text-primary font-bold text-sm">#kubernetes</p>
+<p class="text-xs text-on-surface-variant">205 posts · Trending in DevOps</p>
+</div>
+</div>
+<button class="w-full mt-6 text-sm font-bold text-primary hover:underline">Show more</button>
+</section>
+<!-- Developers You Might Know -->
+<section class="bg-surface-container-low rounded-xl p-6 border border-white/5">
+<h3 class="font-black text-xs uppercase tracking-[0.2em] text-on-surface-variant mb-6">Sync with Peers</h3>
+<div class="space-y-6">
+<!-- User 1 -->
+<div class="flex items-start gap-3">
+<img alt="Developer" class="w-10 h-10 rounded-full" data-alt="portrait of a software developer wearing a dark beanie and glasses" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhWTxsyO_8J-WT-TqCilcewTNtIJDkddEvQZKHY7mV_DwPk23I5vIQSe06n5lY0JJCCVs8BR6wHtGLvvhAqEQKyOzks7XHEbQKG20gZYlVVy9N4aaHT3CVhmBphVSmINLipQFyOjrGKibHrgAB1fk6he_Jvj7cjb9wEMkPcUbnHYE1WRiL0TaJu4bWlUjwHf4fuulbLwUU_5atb4V6i4M_zGeUMDXTPPFJxcgvgcpGxAQk0_wsoIuo1adAwFXl62f61AqIN_9nL14"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Alex Rivera</p>
+<div class="flex gap-1 mt-1">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">Golang</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">AWS</span>
+</div>
+<button class="mt-3 w-full py-1.5 border border-primary/30 text-primary text-xs font-bold rounded-full hover:bg-primary/10 transition-colors">
+                                Connect
+                            </button>
+</div>
+</div>
+<!-- User 2 -->
+<div class="flex items-start gap-3">
+<img alt="Developer" class="w-10 h-10 rounded-full" data-alt="portrait of a female developer with dyed blue hair, modern minimal tech aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYDcjA--7JZijiteQCXWXqCRtghg65iOE2Zpoc8r0zKYAjkVegdXVW3bvJwJKFdYiMPCmcJtKFPVqHgdwy_7VgizZZXsJUk90NxjDR7n2p8aMNUjuPCy0bIVu9_dLQqJPOeSgaiiFnFQzqb0Vb6aSfBgDwpeQVo2XTquln7eKC6fyiN7eXIA6Y9uukEMEw6PoGd7KJiAK6v_k1VbVmUHJIi2pHkGkeGacS_Lok5uamOUoaYz25Aj6Ndtk4lkVwfhsqn73xiELutgE"/>
+<div class="flex-1 min-w-0">
+<p class="text-sm font-bold truncate">Kim Seo-jun</p>
+<div class="flex gap-1 mt-1">
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">Three.js</span>
+<span class="px-2 py-0.5 bg-primary/10 text-primary text-[10px] font-bold rounded">GLSL</span>
+</div>
+<button class="mt-3 w-full py-1.5 border border-primary/30 text-primary text-xs font-bold rounded-full hover:bg-primary/10 transition-colors">
+                                Connect
+                            </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer links -->
+<div class="px-4 text-[11px] text-on-surface-variant/40 flex flex-wrap gap-x-4 gap-y-2 font-mono uppercase tracking-widest">
+<a class="hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="hover:text-primary transition-colors" href="#">Terms</a>
+<a class="hover:text-primary transition-colors" href="#">Cookies</a>
+<a class="hover:text-primary transition-colors" href="#">API</a>
+<span>© 2024 DevConnect</span>
+</div>
+</aside>
+</div>
+<!-- Mobile Navigation (BottomNavBar) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 glass-effect border-t border-white/5 flex justify-around items-center h-16 px-4 z-50">
+<a class="text-primary flex flex-col items-center" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dynamic_feed</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">explore</span>
+</a>
+<div class="relative -top-6">
+<button class="bg-primary text-on-primary w-14 h-14 rounded-full shadow-lg shadow-primary/30 flex items-center justify-center">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+</div>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">chat_bubble</span>
+</a>
+<a class="text-on-surface-variant flex flex-col items-center" href="#">
+<span class="material-symbols-outlined">person</span>
+</a>
+</nav>
+</body></html>

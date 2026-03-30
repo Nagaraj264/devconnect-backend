@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Our DevConnect Color Palette */
+  --color-primary: #57f1db;
+  --color-surface: #0f1419;
+  --color-surface-container: #1b2025;
+  --color-on-surface: #dee3ea;
+  --color-on-surface-variant: #bacac5;
+  --color-primary-container: #2dd4bf;
+
+  /* Typography */
+  --font-mono: "JetBrains Mono", monospace;
+  --font-body: "Inter", sans-serif;
+  
+  /* Radii */
+  --radius-default: 1rem;
+  --radius-lg: 2rem;
+  --radius-xl: 3rem;
+}
+
+/* Custom Utilities from your Stitch design */
+@utility glass-effect {
+  background: rgba(27, 32, 37, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}

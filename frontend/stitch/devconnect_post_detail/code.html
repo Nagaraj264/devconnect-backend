@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post Detail | DevConnect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "tertiary-container": "#44d69b",
+                        "on-secondary-container": "#c4abff",
+                        "error-container": "#93000a",
+                        "surface-container-low": "#171c21",
+                        "surface-container-high": "#252a30",
+                        "outline": "#859490",
+                        "on-surface-variant": "#bacac5",
+                        "surface-tint": "#3cddc7",
+                        "error": "#ffb4ab",
+                        "background": "#0f1419",
+                        "primary-fixed-dim": "#3cddc7",
+                        "on-surface": "#dee3ea",
+                        "on-secondary": "#3c0091",
+                        "on-primary-fixed": "#00201c",
+                        "primary": "#57f1db",
+                        "surface-dim": "#0f1419",
+                        "on-background": "#dee3ea",
+                        "inverse-on-surface": "#2c3136",
+                        "surface": "#0f1419",
+                        "on-primary-container": "#00574d",
+                        "on-error": "#690005",
+                        "inverse-surface": "#dee3ea",
+                        "surface-bright": "#353a3f",
+                        "on-secondary-fixed": "#23005c",
+                        "on-tertiary-container": "#00593b",
+                        "surface-variant": "#30353b",
+                        "tertiary": "#66f3b6",
+                        "on-primary-fixed-variant": "#005047",
+                        "surface-container-highest": "#30353b",
+                        "primary-fixed": "#62fae3",
+                        "inverse-primary": "#006b5f",
+                        "secondary-container": "#571bc1",
+                        "secondary": "#d0bcff",
+                        "on-tertiary-fixed": "#002113",
+                        "primary-container": "#2dd4bf",
+                        "on-primary": "#003731",
+                        "outline-variant": "#3c4a46",
+                        "secondary-fixed-dim": "#d0bcff",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#e9ddff",
+                        "on-secondary-fixed-variant": "#5516be",
+                        "tertiary-fixed-dim": "#4edea3",
+                        "on-tertiary-fixed-variant": "#005236",
+                        "tertiary-fixed": "#6ffbbe",
+                        "surface-container-lowest": "#0a0f14",
+                        "on-tertiary": "#003824",
+                        "surface-container": "#1b2025"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"],
+                        "mono": ["JetBrains Mono", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        body {
+            background-color: #0F1419;
+            color: #dee3ea;
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background selection:bg-primary/30">
+<!-- Top Navigation Bar (Mobile only) -->
+<header class="fixed top-0 w-full z-50 bg-[#0F1419] lg:hidden flex justify-between items-center px-6 h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#57F1DB]">arrow_back</span>
+<span class="font-['Inter'] font-bold tracking-tight text-[#57F1DB] text-xl tracking-tighter">DevConnect</span>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-slate-400">share</span>
+<span class="material-symbols-outlined text-slate-400">more_vert</span>
+</div>
+</header>
+<!-- Side Navigation Bar (Desktop) -->
+<aside class="fixed left-0 top-0 h-full h-screen w-64 hidden lg:flex flex-col border-r border-[#30353B]/20 bg-[#171C21] z-40">
+<div class="p-8">
+<span class="text-[#57F1DB] font-bold text-2xl tracking-tighter">DevConnect</span>
+</div>
+<nav class="flex-1 px-4 space-y-2">
+<!-- Active State: Feed is closest to "Post Detail" context -->
+<a class="flex items-center gap-4 text-[#57F1DB] bg-[#1B2025] rounded-r-full py-3 px-6 border-l-4 border-[#57F1DB] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span class="font-['Inter'] text-sm font-medium">Feed</span>
+</a>
+<a class="flex items-center gap-4 text-slate-400 py-3 px-6 hover:text-white hover:bg-[#1B2025] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-['Inter'] text-sm font-medium">Explore</span>
+</a>
+<a class="flex items-center gap-4 text-slate-400 py-3 px-6 hover:text-white hover:bg-[#1B2025] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="bookmark">bookmark</span>
+<span class="font-['Inter'] text-sm font-medium">Bookmarks</span>
+</a>
+<a class="flex items-center gap-4 text-slate-400 py-3 px-6 hover:text-white hover:bg-[#1B2025] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+<span class="font-['Inter'] text-sm font-medium">Groups</span>
+</a>
+<a class="flex items-center gap-4 text-slate-400 py-3 px-6 hover:text-white hover:bg-[#1B2025] transition-all duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-['Inter'] text-sm font-medium">Settings</span>
+</a>
+</nav>
+<div class="p-6 border-t border-[#30353B]/10">
+<div class="flex items-center gap-3 mb-6">
+<img alt="User Profile" class="w-10 h-10 rounded-full bg-surface-container" data-alt="close-up portrait of a digital avatar for a software engineer with glasses and a soft glowing blue background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk06RNfbO810XS9Epg0gEDErVf7MxgTBOe_H75dltHB5gVSUplUxnOwCnx7bML5p0HKAo1PNSizz_ztB87UaAucueZ5xeiGrr3yMTruf0QjlQOnT1tataUYb0kpHE-t1sDN_r20uFq-KcKZ9NzxAChuv1UwevEiFqU9LzJMXGFFZbcljjQx6pwcATxahvBcB8IYWnoj_q6j9o9eJTj9Tzsk1kZPg-t36xLeF9fz25HO76H-RlsRBupt0n5WMSWz81H7F3rW9TNXC0"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Developer Name</p>
+<p class="text-xs text-on-surface-variant">@dev_handle</p>
+</div>
+</div>
+<button class="w-full py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary font-bold rounded-full shadow-lg hover:shadow-primary/20 transition-all">
+                New Post
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="lg:ml-64 min-h-screen pt-16 lg:pt-0 pb-20 lg:pb-0 flex justify-center">
+<div class="w-full max-w-[780px] px-4 py-8 lg:px-8">
+<!-- Back Action -->
+<button class="hidden lg:flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors mb-8 group">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span class="font-medium">Back to feed</span>
+</button>
+<!-- Post Header -->
+<article class="bg-surface-container rounded-DEFAULT p-6 lg:p-8 space-y-6">
+<div class="flex justify-between items-start">
+<div class="flex items-center gap-4">
+<img alt="John Doe" class="w-12 h-12 rounded-full ring-2 ring-primary/20" data-alt="professional portrait of a young male software developer with dark hair wearing a minimalist charcoal hoodie in a high-tech office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5XZl7VTa6wNfODPhXGWmMO5utEVDMc7oWdFLDAsXvkSQOwAC0rw4Z6M1AkrrVDoK7X0v36Xf54Sj_cZjXRfQOYnQ7phY-sAy354kbw27kmhWsKHiUYO7Ell0FQZUG_XctUpyTYsAa-N4xIMmcT59ADTeAxpnkzzYG_kTW08CuCfOhv9zUgzCmm3ATKPVJObEx3XpD138_JYI0eiNJ8cuwK9KWr12eU63oUgjICuVX0_iBzyeKHcTvIKA8GKC9pZFHztXtMdApdoQ"/>
+<div>
+<h3 class="font-bold text-on-surface leading-tight">John Doe</h3>
+<p class="text-sm text-on-surface-variant flex items-center gap-2">
+                                @jdoe_dev <span class="w-1 h-1 rounded-full bg-outline-variant"></span> Posted 3 hours ago
+                            </p>
+</div>
+</div>
+<span class="px-3 py-1 text-[10px] font-bold tracking-widest text-primary border border-primary/30 rounded-full uppercase">
+                        QUESTION
+                    </span>
+</div>
+<h1 class="text-2xl lg:text-3xl font-bold text-white leading-tight tracking-tight font-headline">
+                    How to implement efficient caching for real-time GraphQL subscriptions in high-traffic apps?
+                </h1>
+<div class="space-y-4 text-on-surface leading-relaxed body-md">
+<p>I've been working on a dashboard that handles thousands of concurrent users via Apollo Subscriptions. We're noticing a significant latency spike when multiple events trigger simultaneously. What's the best strategy for caching these updates at the edge?</p>
+<p>Currently, our resolver looks something like this:</p>
+<!-- Code Block -->
+<div class="relative group">
+<div class="absolute right-4 top-4 opacity-0 group-hover:opacity-100 transition-opacity">
+<button class="bg-surface-container-highest/80 backdrop-blur-md px-3 py-1.5 rounded-lg text-xs font-bold text-primary flex items-center gap-2 border border-outline-variant/20">
+<span class="material-symbols-outlined text-sm">content_copy</span>
+                                Copy
+                            </button>
+</div>
+<div class="bg-surface-container-lowest rounded-DEFAULT p-6 overflow-x-auto border border-outline-variant/10">
+<pre class="font-mono text-sm leading-relaxed text-secondary-container"><code><span class="text-secondary">subscription</span> <span class="text-primary">OnMetricUpdate</span>($id: ID!) {
+  <span class="text-tertiary">metricUpdated</span>(id: $id) {
+    id
+    value
+    timestamp
+    metadata {
+      source
+      frequency
+    }
+  }
+}</code></pre>
+</div>
+</div>
+<p>Is anyone using Redis as an intermediate message broker to throttle these updates before they hit the client-side cache?</p>
+</div>
+<!-- Post Image -->
+<div class="mt-6">
+<img alt="Architecture Diagram" class="w-full rounded-DEFAULT border border-outline-variant/20" data-alt="highly detailed technical architecture diagram showing cloud infrastructure with neon teal connecting lines on a dark obsidian background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDHpuiz3ggagwmp42UhNmfAOkqPUDplQ_z-9z3vUkJ2xhZ-7FVCzPKqQhct7JRGk-j1XO05JKtineYwZSadTbWn7iadjZKXVHqEjAKDyKKKpTz5YTNR4r7dJHYP15U_9J3SY8brM3zbPv1QfsxNuaoP7sy-bd-GOyKTD_S5AJZVK7Tx8-x8xsmW084tJ7m_tCm66gGhpWvSeJCSJzt20fC2CslKdklhTSIxCNM0PY7h_o4byMRCfgYl4g2O1WND0WCp_dD5-_64pu4"/>
+</div>
+<!-- Tags -->
+<div class="flex flex-wrap gap-2 pt-4">
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-semibold hover:text-primary cursor-pointer transition-colors">#graphql</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-semibold hover:text-primary cursor-pointer transition-colors">#redis</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-semibold hover:text-primary cursor-pointer transition-colors">#architecture</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant rounded-full text-xs font-semibold hover:text-primary cursor-pointer transition-colors">#scaling</span>
+</div>
+<!-- Interaction Bar -->
+<div class="flex items-center gap-8 py-4 border-t border-outline-variant/10">
+<button class="flex items-center gap-2 text-[#FF4B4B] hover:scale-110 transition-transform">
+<span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="text-sm font-bold">124</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">chat_bubble</span>
+<span class="text-sm font-bold">12</span>
+</button>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined">share</span>
+<span class="text-sm font-bold">Share</span>
+</button>
+</div>
+</article>
+<!-- Comments Section -->
+<section class="mt-12 space-y-8">
+<div class="flex items-center justify-between">
+<h2 class="text-xl font-bold text-white">Comments (12)</h2>
+<div class="h-px flex-1 bg-outline-variant/20 ml-6"></div>
+</div>
+<!-- Comment Input -->
+<div class="flex gap-4 items-start">
+<img alt="Your Profile" class="w-10 h-10 rounded-full bg-surface-container" data-alt="close-up portrait of a user profile placeholder showing a minimalist digital avatar in a dark aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqng0_bXanq93_UszcSywmAo_9GzrvHbno_276wkxCLvDt2RRv2dcD-_X4EC9JAR2cbkCmC1ykh3TlXhVGWVFMsi5UxjIjTUhH8sjjvpcwWR8neriejYAGq5TNCQjyRxqN5dgzo8FT_GheDXLCChIL5ld_RvsV9JxeNXJGBh9_8BtRPT7-FGK2rGu3P0ZGenthyHuUHTRZniPqkiV0senaVV_7Yc048m4k2-nJksBUjIRV9BYQtk5Uen33bUf0m79t-u0SX2AHgkA"/>
+<div class="flex-1 space-y-3">
+<textarea class="w-full bg-surface-container-low border-none border-b-2 border-outline-variant/30 focus:border-primary focus:ring-0 text-on-surface rounded-lg placeholder:text-on-surface-variant/50 transition-all" placeholder="Write a comment..." rows="3"></textarea>
+<div class="flex justify-end">
+<button class="px-6 py-2 bg-primary text-on-primary font-bold rounded-full text-sm">Post Comment</button>
+</div>
+</div>
+</div>
+<!-- Comment List -->
+<div class="space-y-6">
+<!-- Comment 1 -->
+<div class="flex gap-4 border-l-2 border-[#1E293B] pl-6 py-2 transition-colors hover:border-primary/50">
+<img alt="Sarah Miller" class="w-10 h-10 rounded-full" data-alt="portrait of a female engineer with short glasses and a creative vibe, soft studio lighting on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABeuNzVfnOswbpLIp5Tg45DCQV-O8nxCtFR82Q1nd-RxsLUzTt9tiryxcpsaIlTiXQQXoh_w9uomN80AyIdhRjS5_qKLmpYRSDceVpko15xm2YEErHlg2eLQEGupl6CDRxYJb5sRTu2U25qCQEnUXOdoYraLai0yEPotaaalsvuSVvbP8FQJvcR5Ttihp_VqlmAPTuni487PvSFiwDIUb1EbQbE0MnjHWzVDEyV1FyLl1wNbZpuWtXFh0lsWx1xgHifiP1bqCOqVE"/>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">Sarah Miller</span>
+<span class="text-xs text-on-surface-variant">2 hours ago</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                Great question! Have you looked into the @apollo/client's persistent cache or using a custom broadcast channel for syncing states across tabs? That solved about 40% of our latency issues in a similar stack.
+                            </p>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-[#FF4B4B] transition-colors group">
+<span class="material-symbols-outlined text-sm transition-transform group-hover:scale-125">favorite</span>
+<span class="text-xs font-bold">18</span>
+</button>
+</div>
+</div>
+<!-- Comment 2 -->
+<div class="flex gap-4 border-l-2 border-[#1E293B] pl-6 py-2 transition-colors hover:border-primary/50">
+<img alt="Alex Kim" class="w-10 h-10 rounded-full" data-alt="portrait of a tech-savvy person wearing high-end headphones in a dim room with cyan backlighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_f6zd59e9DmqllVNDzT91qdJooWxNR6hWyINfsXUF5Im7Gx4B7uhLDIK0RpPkdv0JKSAyfzOKIz7Z4rdT0uZDBz1Z5L3CNz-BlYoxg-fW7xrv8i2veZI7TeK96JRcV4JbpyTHkUSvCDKZugvk1aKfGgC5Sg3VtLGNbvLiotMKqzBTPE7cDBPxtHNy6itndU7lxiimR7Gx76tve5NnxbkEk8xAO9tm0IvCJx8HKUpAPpPmIQ5IYNqZ3LG-8KdnXqJsVKT3Pkm3_Ck"/>
+<div class="flex-1 space-y-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="font-bold text-on-surface">Alex Kim</span>
+<span class="text-xs text-on-surface-variant">45 mins ago</span>
+</div>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                                We actually implemented a Redis stream for this. It acts as a buffer. The client only receives a 'heartbeat' notification, and then pulls the delta via a query instead of sending the whole payload over the socket.
+                            </p>
+<button class="flex items-center gap-2 text-on-surface-variant hover:text-[#FF4B4B] transition-colors group">
+<span class="material-symbols-outlined text-sm transition-transform group-hover:scale-125">favorite</span>
+<span class="text-xs font-bold">4</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-16 pb-safe bg-[#0F1419]/80 backdrop-blur-xl lg:hidden border-t border-[#30353B]/20">
+<!-- Active: Feed -->
+<a class="flex flex-col items-center justify-center text-[#57F1DB] py-2 scale-90 transition-all duration-150" href="#">
+<span class="material-symbols-outlined filled-icon" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Feed</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 py-2 active:bg-[#1B2025] transition-all duration-150" href="#">
+<span class="material-symbols-outlined">search</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Search</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 py-2 active:bg-[#1B2025] transition-all duration-150" href="#">
+<span class="material-symbols-outlined">notifications</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Notifs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 py-2 active:bg-[#1B2025] transition-all duration-150" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-[10px] font-bold uppercase tracking-widest mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=JetBrains+Mono:wght@400;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#3c4a46",
+              "on-primary-container": "#00574d",
+              "surface-dim": "#0f1419",
+              "primary": "#57f1db",
+              "surface": "#0f1419",
+              "on-error": "#690005",
+              "surface-container-low": "#171c21",
+              "surface-container-high": "#252a30",
+              "surface-container": "#1b2025",
+              "on-secondary-fixed-variant": "#5516be",
+              "on-tertiary-fixed": "#002113",
+              "on-tertiary": "#003824",
+              "surface-container-highest": "#30353b",
+              "secondary-container": "#571bc1",
+              "secondary-fixed": "#e9ddff",
+              "on-surface-variant": "#bacac5",
+              "surface-bright": "#353a3f",
+              "on-primary-fixed": "#00201c",
+              "error-container": "#93000a",
+              "on-secondary": "#3c0091",
+              "primary-fixed-dim": "#3cddc7",
+              "primary-container": "#2dd4bf",
+              "tertiary-container": "#44d69b",
+              "background": "#0f1419",
+              "on-surface": "#dee3ea",
+              "surface-container-lowest": "#0a0f14",
+              "tertiary-fixed-dim": "#4edea3",
+              "secondary": "#d0bcff",
+              "on-error-container": "#ffdad6",
+              "inverse-primary": "#006b5f",
+              "primary-fixed": "#62fae3",
+              "on-secondary-fixed": "#23005c",
+              "secondary-fixed-dim": "#d0bcff",
+              "on-primary": "#003731",
+              "on-tertiary-container": "#00593b",
+              "surface-tint": "#3cddc7",
+              "on-primary-fixed-variant": "#005047",
+              "tertiary": "#66f3b6",
+              "on-tertiary-fixed-variant": "#005236",
+              "outline": "#859490",
+              "surface-variant": "#30353b",
+              "inverse-on-surface": "#2c3136",
+              "on-background": "#dee3ea",
+              "inverse-surface": "#dee3ea",
+              "tertiary-fixed": "#6ffbbe",
+              "on-secondary-container": "#c4abff",
+              "error": "#ffb4ab"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-overlay {
+            backdrop-filter: blur(12px);
+            background-color: rgba(15, 20, 25, 0.8);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #3c4a46;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased min-h-screen overflow-hidden">
+<!-- Background Content (Simulated Profile Page) -->
+<main class="flex min-h-screen">
+<!-- SideNavBar from JSON -->
+<aside class="h-screen sticky left-0 top-0 w-64 bg-[#171C21] hidden md:flex flex-col py-8 px-4 gap-2 no-line tonal shift">
+<div class="mb-8 px-4">
+<h1 class="text-[#2DD4BF] font-black text-2xl tracking-tighter">DevConnect</h1>
+</div>
+<div class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-500 hover:text-slate-300 hover:bg-[#1B2025] transition-all font-mono text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+<span>Feed</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-500 hover:text-slate-300 hover:bg-[#1B2025] transition-all font-mono text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="code">code</span>
+<span>Projects</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-500 hover:text-slate-300 hover:bg-[#1B2025] transition-all font-mono text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="forum">forum</span>
+<span>Discussions</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-slate-500 hover:text-slate-300 hover:bg-[#1B2025] transition-all font-mono text-sm uppercase tracking-widest" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span>Network</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full bg-[#1B2025] text-[#2DD4BF] border-r-4 border-[#2DD4BF] font-mono text-sm uppercase tracking-widest active:translate-x-1 duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="mt-auto p-4 bg-surface-container rounded-DEFAULT">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden">
+<img alt="User Profile" data-alt="Close up portrait of a senior software engineer with glasses, soft cinematic lighting, professional studio setup" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC51YsLt6qecMc3pEuQv1ZiFINaWH-v87XEsIM19eUh7ahHNz0pri3dUcPE5F0AFRyJ4oTMWK_jQo4nE3CctdalvEVNapbAFQQtZZBP4Fx8Go7f2TjnM8zQ3m_qeZMT_jO_SUlKZ-suc1APChimgKBetIit4BCKXl6UquMsUYS1uTS3ec-FDNkmmjJIkGk3FHUQ0jVnvCMu7vrTfvu40DBQV1xxHGWfYH3RA4362ra8bqy5aIiomQWT8aR6iT2zdrmZumtxetlgh8M"/>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">DevName</p>
+<p class="text-[10px] text-on-surface-variant">Senior Engineer</p>
+</div>
+</div>
+<button class="w-full py-2 bg-surface-container-high rounded-full text-xs font-bold text-primary hover:bg-surface-variant transition-colors">Edit Profile</button>
+</div>
+</aside>
+<section class="flex-1 p-8 opacity-40">
+<header class="mb-12">
+<h2 class="text-4xl font-headline font-bold tracking-tight mb-2">User Settings</h2>
+<p class="text-on-surface-variant">Manage your public presence and account security.</p>
+</header>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container-low h-48 rounded-DEFAULT"></div>
+<div class="bg-surface-container-low h-48 rounded-DEFAULT"></div>
+<div class="bg-surface-container-low h-96 md:col-span-2 rounded-DEFAULT"></div>
+</div>
+</section>
+</main>
+<!-- Modal Overlay -->
+<div class="fixed inset-0 z-[100] flex items-center justify-center p-4 glass-overlay">
+<!-- Edit Profile Modal Card -->
+<div class="w-full max-w-[560px] bg-[#1B2025] rounded-[16px] shadow-2xl border border-outline-variant/20 flex flex-col max-h-[921px]">
+<!-- Modal Header -->
+<div class="px-8 py-6 border-b border-outline-variant/10 flex items-center justify-between">
+<h3 class="text-xl font-headline font-bold text-on-surface tracking-tight">Edit Profile</h3>
+<button class="text-on-surface-variant hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<!-- Modal Content -->
+<div class="flex-1 overflow-y-auto px-8 py-6 custom-scrollbar">
+<form class="space-y-6">
+<!-- Avatar Upload -->
+<div class="flex flex-col items-center gap-4 mb-8">
+<div class="relative group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-surface-container-highest overflow-hidden border-2 border-primary-container/30">
+<img alt="Avatar Preview" class="w-full h-full object-cover group-hover:opacity-50 transition-opacity" data-alt="Portrait of a developer, dark moody lighting, futuristic tech aesthetic, blurred background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAS_yFlqgRXjyJwi_wJ_BBsZIMvF_hBlORboldTdmqpW4n8sWS5e5xaqt6fPqQ5PcGr4PTiUE-f6gK6SWqcYRVITfde6QAhy_CkdmmAmOkCfwTw9-NpsPcnJvHPA395k0gjd26OOsAdPZDGSxH7IuMWa-eu0zeeq9IRmscyB7B-iqNLMmgNnOsUSoFfdspfNtM2QILHGirWkkHvn4tOTG2A_jqBB8S7vQKadCwbFqNghq6WkFeWuTK-BIqsFUO4Ni3eGvB0MVS5U2I"/>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<span class="material-symbols-outlined text-primary text-3xl">photo_camera</span>
+</div>
+<input class="hidden" id="avatar-input" type="file"/>
+</div>
+<label class="text-xs font-label font-bold uppercase tracking-widest text-primary hover:text-primary-fixed-dim transition-colors cursor-pointer" for="avatar-input">Change Avatar</label>
+</div>
+<!-- Name Field -->
+<div class="space-y-2">
+<label class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant">Full Name</label>
+<input class="w-full bg-[#0A0F14] border border-[#1E293B] rounded-DEFAULT px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all placeholder:text-slate-600" placeholder="e.g. Alex Rivera" type="text"/>
+</div>
+<!-- Bio Field -->
+<div class="space-y-2">
+<label class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant">Bio</label>
+<textarea class="w-full bg-[#0A0F14] border border-[#1E293B] rounded-DEFAULT px-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all resize-none placeholder:text-slate-600" placeholder="Tell the community about yourself..." rows="3">Senior Full-stack Engineer specializing in React and Rust. Passionate about building distributed systems and high-performance UIs.</textarea>
+</div>
+<!-- Social URLs -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant">GitHub</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors text-[20px]">terminal</span>
+<input class="w-full bg-[#0A0F14] border border-[#1E293B] rounded-DEFAULT pl-12 pr-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all" type="text" value="github.com/alexrivera"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant">Twitter</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors text-[20px]">alternate_email</span>
+<input class="w-full bg-[#0A0F14] border border-[#1E293B] rounded-DEFAULT pl-12 pr-4 py-3 text-on-surface focus:border-primary focus:ring-1 focus:ring-primary/20 outline-none transition-all" type="text" value="twitter.com/alex_dev"/>
+</div>
+</div>
+</div>
+<!-- Skills Tags -->
+<div class="space-y-3">
+<label class="text-xs font-label font-bold uppercase tracking-widest text-on-surface-variant">Skills &amp; Expertise</label>
+<div class="flex flex-wrap gap-2 p-3 bg-[#0A0F14] border border-[#1E293B] rounded-DEFAULT min-h-[56px] focus-within:border-primary transition-all">
+<!-- Skill Pills -->
+<div class="flex items-center gap-1.5 bg-surface-container-high text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20">
+<span>React</span>
+<button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-high text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20">
+<span>TypeScript</span>
+<button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-high text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20">
+<span>Rust</span>
+<button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+<div class="flex items-center gap-1.5 bg-surface-container-high text-primary px-3 py-1 rounded-full text-xs font-bold border border-primary/20">
+<span>GraphQL</span>
+<button class="hover:text-error transition-colors"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+<!-- Tag Input -->
+<input class="bg-transparent border-none outline-none focus:ring-0 text-xs py-1 flex-1 min-w-[100px] placeholder:text-slate-700" placeholder="Add skill..." type="text"/>
+</div>
+<p class="text-[10px] text-on-surface-variant">Press Enter or comma to add a skill.</p>
+</div>
+</form>
+</div>
+<!-- Modal Footer -->
+<div class="px-8 py-6 border-t border-outline-variant/10 flex items-center justify-end gap-4 bg-surface-container-low/50">
+<button class="px-6 py-2.5 rounded-full text-sm font-bold text-on-surface-variant hover:text-on-surface transition-colors">Cancel</button>
+<button class="px-8 py-2.5 bg-gradient-to-r from-primary to-primary-container rounded-full text-sm font-bold text-on-primary hover:shadow-[0_0_15px_rgba(87,241,219,0.3)] transition-all">Save Changes</button>
+</div>
+</div>
+</div>
+</body></html>
