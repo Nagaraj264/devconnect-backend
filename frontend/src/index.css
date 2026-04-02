@@ -1,27 +1,65 @@
 @import "tailwindcss";
 
 @theme {
-  /* Our DevConnect Color Palette */
+  /* 🏗️ Step 1: Tell Tailwind v4 about our Color Palette */
   --color-primary: #57f1db;
+  --color-primary-foreground: #003731;
+  --color-background: #0f1419;
+  --color-foreground: #dee3ea;
+  
   --color-surface: #0f1419;
   --color-surface-container: #1b2025;
   --color-on-surface: #dee3ea;
-  --color-on-surface-variant: #bacac5;
-  --color-primary-container: #2dd4bf;
-
-  /* Typography */
-  --font-mono: "JetBrains Mono", monospace;
-  --font-body: "Inter", sans-serif;
   
-  /* Radii */
-  --radius-default: 1rem;
-  --radius-lg: 2rem;
-  --radius-xl: 3rem;
+  /* Required names for shadcn components */
+  --color-card: #1b2025;
+  --color-card-foreground: #dee3ea;
+  --color-popover: #0f1419;
+  --color-popover-foreground: #dee3ea;
+  --color-secondary: #21262d;
+  --color-secondary-foreground: #dee3ea;
+  --color-muted: #21262d;
+  --color-muted-foreground: #bacac5;
+  --color-accent: rgba(87, 241, 219, 0.1);
+  --color-accent-foreground: #57f1db;
+  --color-destructive: #ff4d4d;
+  --color-destructive-foreground: #ffffff;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-input: rgba(255, 255, 255, 0.1);
+  --color-ring: #57f1db;
+
+  /* Typography & Radii */
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --radius-xl: 1.5rem;
+  --radius-lg: 1rem;
+  --radius-md: 0.75rem;
+  --radius-sm: 0.5rem;
 }
 
-/* Custom Utilities from your Stitch design */
+/* 🎨 Step 2: Set the mapping for browser variables */
+:root {
+  --background: #0f1419;
+  --foreground: #dee3ea;
+  --primary: #57f1db;
+  --primary-foreground: #003731;
+  --border: rgba(255, 255, 255, 0.1);
+  --ring: #57f1db;
+  --radius: 1rem;
+}
+
+/* 🧪 Custom Utilities */
 @utility glass-effect {
   background: rgba(27, 32, 37, 0.7);
   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+}
+
+/* 🧘 Reset & Base Styles */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
 }

@@ -2,7 +2,7 @@
 
 > **Last Updated**: 2026-03-30
 > **Current Phase**: Phase 2 — Layout & Navigation
-> **Current Step**: Ready to start Step 2.1
+> **Current Step**: Starting Step 2.2 — Building the Sidebar Component
 
 ---
 
@@ -26,6 +26,9 @@
 - [x] Step 1.2: Built `TagBadge.jsx` — learned Props and component creation
 - [x] Step 1.3: Built `PostCard.jsx` — learned composition, `.map()`, `key` prop
 - [x] Step 1.4: Added interactive Like button — learned `useState`, event handlers, ternary operator
+
+### Phase 2: Layout & Navigation 🔄
+- [x] Step 2.1: Installed React Router (`react-router-dom`)
 
 ---
 
