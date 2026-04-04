@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
+import RightSidebar from '../components/RightSidebar'; 
 
 function DashboardLayout() {
   return (
@@ -15,6 +16,7 @@ function DashboardLayout() {
       </main>
 
       {/* 🔍 Optional: A "Right Sidebar" (Explore/Trends) could go here later */}
+      <RightSidebar /> 
     </div>
   );
 }

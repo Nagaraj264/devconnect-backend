@@ -1,5 +1,9 @@
 import bcrypt from "bcryptjs";
-import { generateAccessToken, generateRefreshToken, verifyRefreshToken } from "../utils/jwt.js";
+import {
+  generateAccessToken,
+  generateRefreshToken,
+  verifyRefreshToken,
+} from "../utils/jwt.js";
 import prisma from "../services/db.js";
 
 export const register = async (req, res, next) => {
@@ -13,8 +17,8 @@ export const register = async (req, res, next) => {
     });
 
     if (existingUser) {
-      return res.status(400).json({ 
-        message: "User with this email or username already exists" 
+      return res.status(400).json({
+        message: "User with this email or username already exists",
       });
     }
 
@@ -63,28 +67,56 @@ export const login = async (req, res, next) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    const accessToken = generateAccessToken({ id: user.id,  });
+    const accessToken = generateAccessToken({ id: user.id });
     const refreshToken = generateRefreshToken({ id: user.id });
 
-    res.status(200).json({ accessToken, refreshToken });
+    res.status(200).json({
+      accessToken,
+      refreshToken,
+      user: {
+        id: user.id,
+        email: user.email,
+        username: user.username,
+        name: user.name,
+      },
+    });
   } catch (error) {
     next(error);
   }
 };
 
 export const refreshToken = (req, res) => {
-  const { token } = req.body; 
+  const { token } = req.body;
 
   if (!token) {
     return res.status(401).json({ message: "Refresh token required" });
   }
-  
+
   const decoded = verifyRefreshToken(token);
-  
+
   if (!decoded) {
     return res.status(403).json({ message: "Invalid refresh token" });
   }
-  
+
   const accessToken = generateAccessToken({ id: decoded.id });
   res.json({ accessToken });
+};
+
+export const me = async (req, res, next) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { id: req.user.id },
+      select: {
+        id: true,
+        email: true,
+        username: true,
+        name: true,
+        createdAt: true,
+      },
+    });
+
+    res.json({ user });
+  } catch (error) {
+    next(error);
+  }
 };

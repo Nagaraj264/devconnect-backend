@@ -1,8 +1,8 @@
 # 🚦 DevConnect Frontend — Progress Tracker
 
-> **Last Updated**: 2026-03-30
-> **Current Phase**: Phase 2 — Layout & Navigation
-> **Current Step**: Starting Step 2.2 — Building the Sidebar Component
+> **Last Updated**: 2026-04-03
+> **Current Phase**: Phase 4 — Feed & Data Integration
+> **Current Step**: Ready to start Step 4.1 — Signup Page & User Personalization
 
 ---
 
@@ -27,23 +27,40 @@
 - [x] Step 1.3: Built `PostCard.jsx` — learned composition, `.map()`, `key` prop
 - [x] Step 1.4: Added interactive Like button — learned `useState`, event handlers, ternary operator
 
-### Phase 2: Layout & Navigation 🔄
+### Phase 2: Layout & Navigation ✅
 - [x] Step 2.1: Installed React Router (`react-router-dom`)
+- [x] Step 2.2: Built the Sidebar Component (Lucide + Framer Motion)
+- [x] Step 2.3: Built the DashboardLayout (Layout nesting + Outlet)
+- [x] Step 2.4: Set up routing in App.jsx (Feed, Explore, Chat, etc.)
+- [x] Step 2.5: Initialized shadcn/ui (Vite + Tailwind v4 + Import Alias)
+- [x] Step 2.6: Built the Right Sidebar (Explore panel with Trending Nodes)
+
+### Phase 3: Authentication (Days 5-7) ✅
+- [x] Step 3.1: Build the AuthLayout & Login Page (Form UI)
+- [x] Step 3.2: Connect to Backend Login API (Fetch/Axios)
+- [x] Step 3.3: Handle JWT Storage & User State (Auth Context)
+- [x] Step 3.4: Implement Protected Routes (Guard)
+
+### Phase 4: Feed & Data Integration 🔄
+- [ ] Step 4.1: Build the Signup Page (New Node Registration)
+- [ ] Step 4.2: Personalize Sidebar (Show current user info)
+- [ ] Step 4.3: Fetch Real Posts from Backend API
+- [ ] Step 4.4: Implement Create Post functionality
 
 ---
 
 ## 🔄 Currently Working On
 
-> Ready to start Phase 2 — Layout & Navigation
+> Starting Phase 4 — Building the Signup Page & Personalizing the UI
 
 ---
 
 ## 📋 What's Next (Immediate)
 
-1. **Phase 2, Step 2.1**: Install React Router (`bun add react-router-dom`)
-2. **Phase 2, Step 2.2**: Build the Sidebar component (convert Stitch HTML → JSX)
-3. **Phase 2, Step 2.3**: Build the DashboardLayout (learn `children` / `Outlet`)
-4. **Phase 2, Step 2.4**: Set up routing in App.jsx (`BrowserRouter`, `Routes`, `Link`)
+1. **Phase 4, Step 4.1**: Build the Signup Page using our AuthLayout
+2. **Phase 4, Step 4.2**: Update the Sidebar to show the logged-in user's name
+3. **Phase 4, Step 4.3**: Connect the Feed to the backend `POSTS` API
+4. **Phase 4, Step 4.4**: Build the "Create Post" modal with a real API call
 
 ---
 
