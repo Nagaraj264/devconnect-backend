@@ -1,8 +1,8 @@
 # 🚦 DevConnect Frontend — Progress Tracker
 
-> **Last Updated**: 2026-04-03
-> **Current Phase**: Phase 4 — Feed & Data Integration
-> **Current Step**: Ready to start Step 4.1 — Signup Page & User Personalization
+> **Last Updated**: 2026-04-05
+> **Current Phase**: Phase 5 — Profiles & Details
+> **Current Step**: Ready to start Step 5.1 — Post Detail Page & Dynamic Routes
 
 ---
 
@@ -41,26 +41,32 @@
 - [x] Step 3.3: Handle JWT Storage & User State (Auth Context)
 - [x] Step 3.4: Implement Protected Routes (Guard)
 
-### Phase 4: Feed & Data Integration 🔄
-- [ ] Step 4.1: Build the Signup Page (New Node Registration)
-- [ ] Step 4.2: Personalize Sidebar (Show current user info)
-- [ ] Step 4.3: Fetch Real Posts from Backend API
-- [ ] Step 4.4: Implement Create Post functionality
+### Phase 4: Feed & Data Integration ✅
+- [x] Step 4.1: Build the Signup Page (New Node Registration)
+- [x] Step 4.2: Personalize Sidebar (Show current user info)
+- [x] Step 4.3: Fetch Real Posts from Backend API
+- [x] Step 4.4: Implement Create Post functionality (Modal + Image Upload)
+
+### Phase 5: Profiles & Details 🔄
+- [ ] Step 5.1: Build the Post Detail Page (Dynamic Routes)
+- [ ] Step 5.2: Build the Comment Section
+- [ ] Step 5.3: Build the Developer Profile Page
+- [ ] Step 5.4: Build the Edit Profile Modal
 
 ---
 
 ## 🔄 Currently Working On
 
-> Starting Phase 4 — Building the Signup Page & Personalizing the UI
+> Starting Phase 5 — Building Dynamic Post Detail Pages & Comments
 
 ---
 
 ## 📋 What's Next (Immediate)
 
-1. **Phase 4, Step 4.1**: Build the Signup Page using our AuthLayout
-2. **Phase 4, Step 4.2**: Update the Sidebar to show the logged-in user's name
-3. **Phase 4, Step 4.3**: Connect the Feed to the backend `POSTS` API
-4. **Phase 4, Step 4.4**: Build the "Create Post" modal with a real API call
+1. **Phase 5, Step 5.1**: Build the Post Detail Page (`/posts/:postId`)
+2. **Phase 5, Step 5.2**: Add the Comment section to the detail page
+3. **Phase 5, Step 5.3**: Build the Profile Page (`/profile/:username`)
+4. **Phase 5, Step 5.4**: Add the "Edit Profile" functionality
 
 ---
 
