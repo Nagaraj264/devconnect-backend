@@ -48,8 +48,8 @@ export const sendMessageSchema = z.object({
 export const updateProfileSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").optional(),
   bio: z.string().max(500, "Bio must be less than 500 characters").optional(),
-  githubUrl: z.string().url("Invalid GitHub URL").optional(),
-  twitterUrl: z.string().url("Invalid Twitter URL").optional(),
+  githubUrl: z.string().url().optional().or(z.literal("")),
+  twitterUrl: z.string().url().optional().or(z.literal("")),
   skills: z.array(z.string()).optional(),
-  avatarUrl: z.string().url("Invalid Image URL").optional(),
+  avatarUrl: z.string().optional(), 
 });

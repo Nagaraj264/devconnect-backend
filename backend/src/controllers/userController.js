@@ -18,9 +18,11 @@ export const getUserProfile = async (req, res, next) => {
         createdAt: true,
         // ENHANCE THIS SECTION
         posts: {
-          take: 10,            // Show only the 10 most recent posts
+          take: 20, // 📡 More signals in the grid!
           orderBy: { createdAt: "desc" },
-          include: { tags: true }
+          include: { 
+            _count: { select: { comments: true } } 
+          }
         },
         _count: { 
           select: { 
