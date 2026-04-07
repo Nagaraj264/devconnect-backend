@@ -18,6 +18,8 @@ const SidebarItem = ({ icon: Icon, label, path, badge }) => {
   const location = useLocation();
   const isActive = location.pathname === path;
 
+  const { user } = useAuth();
+
   return (
     <Link
       to={path}
@@ -86,7 +88,7 @@ function Sidebar() {
           path="/notifications"
           badge="3"
         />
-        <SidebarItem icon={User} label="Profile" path="/profile" />
+        <SidebarItem icon={User} label="Profile" path={`/profile/${user?.username}`} />
       </nav>
 
       {/* 👤 Action & Account Section */}

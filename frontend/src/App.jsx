@@ -6,6 +6,7 @@ import LoginPage from './pages/LoginPage';   // 👈 2. Import it
 import ProtectedRoute from './components/ProtectedRoute';
 import SignupPage from './pages/SignupPage';
 import PostDetailPage from './pages/PostDetailPage';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
            <Route element={<DashboardLayout />}>
              <Route path="/" element={<FeedPage />} />
              <Route path="/posts/:postId" element={<PostDetailPage />} />
+             <Route path="/profile/:username" element={<ProfilePage />} />
            </Route>
         </Route>
 
